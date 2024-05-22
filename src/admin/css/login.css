@@ -1,0 +1,14 @@
+body{
+    background-image: url('img/AGB.png');
+}
+p{
+    text-align: center;
+}
+#center{
+    text-align: center;
+}
+.rogu{
+    content:"";
+    width:150px;
+    height:20px;
+}
