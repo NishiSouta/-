@@ -1,5 +1,7 @@
 body{
-    background-image: url('./img/gamen.png');
+    background-image: url('../img/gamen.png');
+    background-size: 100% 300%;
+    background-repeat: no-repeat;
 }
 p{
     text-align: center;
