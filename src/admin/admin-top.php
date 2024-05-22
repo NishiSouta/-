@@ -11,7 +11,7 @@
         <p><img class="rogo" src="img/AGB.png" alt="写真" width="200" height="180"></p>
     <div id="center"><p><h2>テーマ</h2></p></div>
 
-    <div id="center"><a href="account-itiran.php">アカウント</a></div><!-- 中央よせ・枠組み（グレー）  -->
+    <div id="center"><button><a href="account-itiran.php">アカウント</a></button></div><!-- 中央よせ・枠組み（グレー）  -->
 
 
     <div id="center"><button type="submit" class="rogu" name="name" value="value">ログイン</button></div><!-- 中央よせ・枠組み（グレー）  -->
