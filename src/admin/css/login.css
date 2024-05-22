@@ -1,5 +1,5 @@
 body{
-    background-image: url('img/gamen.png');
+    background-image: url('./img/gamen.png');
 }
 p{
     text-align: center;
