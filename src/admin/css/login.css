@@ -9,6 +9,26 @@ p{
 #center{
     text-align: center;
 }
+#ac-button{
+    position: absolute;
+    top: 220px;
+    left: 750px;
+}
+#cm-button{
+    position: absolute;
+    top: 220px;
+    left: 1050px;
+}
+#teto-button{
+    position: absolute;
+    top: 320px;
+    left: 750px;
+}
+#tede-button{
+    position: absolute;
+    top: 320px;
+    left: 1050px;
+}
 .rogu{
     content:"";
     width:150px;
