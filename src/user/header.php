@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>
-    <img class="rogo" src="img/AGB.png" alt="ロゴ写真" width="129vw" height="110">
-</title>
-</head>
-<body>
-
-
+<header>
+    <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
+    <form method="get" id="form" action="自分のサイトURL">
+        <div class="nes-field">
+            <label for="search_field"></label>
+            <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
+        </div>
+    </form>
+    <a class="nes-btn"  id="prof" href="#">プロフィール</a>
+    <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
+</header>
