@@ -42,7 +42,7 @@ try {
         ];
         echo '<div id="center"><h1>';
         echo  $_SESSION['customer']['admin_name'], 'さん', '<br>';
-        echo '<a href="admin-top.php">ホームへ</a>';
+        echo '<a href="admin-top.php">トップページへ</a>';
         echo '</h1></div>';
     } else {
         echo '<div id="center"><h1>';
