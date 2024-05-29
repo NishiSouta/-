@@ -93,8 +93,14 @@ main h3{
 .flex_item{
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
     margin-right: 30px;
+    margin-bottom: 30px;
     width: 150px;
+}
+
+.game_title{
+    width: 100%;
 }
 
 .img_game{
@@ -102,4 +108,11 @@ main h3{
     width: 150px;
     height:150px;
     border-radius:50%;
+}
+
+.nothing{
+    margin: auto;
+    position: relative;
+    top: 150px;
+    width: 450px
 }
