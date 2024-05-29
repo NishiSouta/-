@@ -3,90 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アカウント削除画面</title>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <title>ログイン画面</title>
     <style>
+        /* CSSで背景画像を設定 */
         body {
-            background-image: url('img/accountdelete.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center; /* 水平方向の中央揃え */
-            align-items: center; /* 垂直方向の中央揃え */
-            position: relative;
+            background-image: url('./img/bg.png'); /* 画像のパスを正確に指定してください */
+            background-size: cover; /* 背景画像を画面にフィットさせる */
+            background-position: center; /* 画像を中央に配置 */
+            background-repeat: no-repeat; /* 画像の繰り返しを無しに設定 */
+            height: 100vh; /* ビューポートの高さにフィット */
+            margin: 0; /* 余白をゼロに */
+            position: relative; /* 子要素の絶対位置を制御するため */
         }
  
-        #teamrogo {
+        /* 左上のアイコン画像のスタイル */
+        #agb-icon {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 70px;
-            height: auto;
-        }
+            top: 10px; /* 上からの距離 */
+            left: 10px; /* 左からの距離 */
+            width: 90px; /* アイコン画像の幅 */
+            height: auto; /* アスペクト比を保つために高さを自動調整 */
+            /* 中央揃えにするためのCSS */
+            #centerikon {
+    text-align: center; /* テキストを中央揃えに設定 */
+    width: 100%; /* 幅を100%に設定して、親要素の全幅を使用 */
+    position: absolute; /* 絶対位置指定 */
+    top: 20%; /* 上から20%の位置 */
+    left: 0; /* 左から0の位置（左端から） */
+    color: white; /* テキストの色を白に設定 */
+}
  
-        .form-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-        }
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%; /* 上端からビューポートの50%の位置に */
+    left: 50%; /* 左端からビューポートの50%の位置に */
+    transform: translate(-50%, -50%); /* 位置調整で正確に中央に */
+    width: 300px; /* フォームの幅を指定 */
+    padding: 20px; /* パディングで内側の余白を設定 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影をつけて立体感を出す */
+    background-color: white; /* 背景色を白に */
+}
  
-        #centerikon {
-            color: black; /* テキストの色を白に設定 */
-        }
+/* フォーム内のテキスト入力フィールド、パスワードフィールド、送信ボタンを調整 */
+input[type="text"], input[type="password"], input[type="submit"] {
+    width: 100%; /* 幅を親要素に合わせる */
+    padding: 10px; /* テキスト入力のパディング */
+    margin-bottom: 10px; /* 要素間の余白 */
+    border: 1px solid #ccc; /* ボーダー */
+    border-radius: 4px; /* 入力フィールドの角を丸める */
+}
  
-        .form p {
-            margin-bottom: 20px;
-        }
+/* 送信ボタンのスタイルを調整 */
+input[type="submit"] {
+    background-color: #007bff; /* ボタンの背景色 */
+    color: white; /* テキストの色 */
+    font-weight: bold; /* フォントの太さ */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s; /* カラー変更のトランジション */
+}
  
-        .form input[type="text"],
-        .form input[type="password"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
+input[type="submit"]:hover {
+    background-color: #0056b3; /* ホバー時の背景色 */
+}
  
-        .form input[type="submit"] {
-            width: 50%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            background-color: #ff0000;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
         }
- 
-        .form input[type="submit"]:hover {
-            background-color: #cc0000;
-        }
+       
     </style>
 </head>
 <body>
-    <img id="teamrogo" src="img/AGB.png" alt="Team Logo">
-    <div class="form-container">
-        <p id="centerikon">削除画面</p>
-        <form action="account-delete-process.php" method="post">
-            <div class="form">
-                <p>アカウントを削除してもよろしいですか？この操作は取り消せません。</p>
-                <label class="mail">
-                    <input type="text" name="mail" placeholder="メールアドレスを入力">
-                </label>
-                <label class="password">
-                    <input type="password" name="password" placeholder="パスワード">
-                </label>
-                <input type="submit" name="delete" value="アカウント削除">
-            </div>
-        </form>
-    </div>
+    <!-- 左上にアイコン画像を追加 -->
+    <img id="agb-icon" src="./img/AGB.png" alt="AGB Icon">
+    <div class="login">
+        <h1>ログイン</h1>
+        </div>
+    <form action="login-output.php" method="post">
+        <div class="form">
+            <label class="mail">
+                <input type="text" name="mail" placeholder="例）kokusi@kokusi.budou"><br>
+                <a id="mailikon">
+                    <!-- メールアイコンのSVG -->
+                </a>
+            </label>
+            <label class="password">
+                <input type="password" name="password" placeholder="PassWord">
+                <a id="key">
+                    <!-- キーのSVG -->
+                </a>
+            </label>
+            <input type="submit" name="regist" value="Login">
+        </div>
+    </form>
 </body>
 </html>
