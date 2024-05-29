@@ -34,3 +34,8 @@ p{
     width:150px;
     height:20px;
 }
+.button{
+    display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
