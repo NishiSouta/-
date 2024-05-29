@@ -16,7 +16,7 @@
         <h3>お気に入り</h3>
         <div class="flex_box">
             <?php
-                for($s1=0; $s1<;6$s1++){
+                for($s1=0; $s1<6; $s1++){
                     echo '<div class="flex_item"><img src="img/white.png" class="img_game"></div>';
                 }
             ?>
