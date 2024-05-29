@@ -1,0 +1,21 @@
+body{
+    background-image: url('../img/sinki.png');
+    background-size: 100% 190%;
+    background-repeat: no-repeat;
+}
+p{
+    text-align: center;
+}
+#center{
+    text-align: center;
+}
+#left{
+    position: absolute;
+    top:250px;
+    left:550px;
+}
+#right{
+    position: absolute;
+    top:250px;
+    right:550px;
+}
