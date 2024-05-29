@@ -10,12 +10,7 @@
     <title>トップ画面</title>
 </head>
 <body>
-<<<<<<< Updated upstream
-    <div class="header">
-        <img src="img/AGB.png">
-    </div>
-    
-=======
+    <?php require 'db-connect.php'; ?>
     <header>
         <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="get" id="form" action="自分のサイトURL">
@@ -31,20 +26,26 @@
         <h3>お気に入り</h3>
         <div class="flex_box">
             <?php
-                for($i=0; $i<6; $i++){
-                    echo '<div class="flex_item"><div class="img_game"></div></div>';
+                for($s1=0; $s1<6; $s1++){
+                    echo '<div class="flex_item"><img src="img/white.png" class="img_game"></div>';
                 }
             ?>
         </div>
         <h3>テーマ</h3>
         <div class="flex_box">
             <?php
-                for($i=0; $i<6; $i++){
-                    echo '<div class="flex_item"><div class="img_game"></div></div>';
+                $pdo=new PDO($connect,USER,PASS);
+                $sql=$pdo->query('select * from Theme');
+                $cnt = 0;
+                foreach($sql as $row){
+                    if( $cnt>6 ){
+                        break;
+                    }
+                    echo '<div class="flex_item"><img src="img/',$row['Theme_jpg'],'" class="img_game"></div>';
+                    $cnt++;
                 }
             ?>
         </div>
     </main>
->>>>>>> Stashed changes
 </body>
 </html>
