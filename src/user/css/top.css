@@ -36,17 +36,17 @@ main{
     /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
               
-            /* 画像をタイル状に繰り返し表示しない */
-            background-repeat: no-repeat;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
               
-            /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-            background-attachment: fixed;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
               
-            /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-            background-size: cover;
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
               
-            /* 背景画像が読み込まれる前に表示される背景のカラー */
-            background-color: #464646;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    background-color: #464646;
 }
 
 main h3{
@@ -85,12 +85,14 @@ main h3{
 
 .flex_box{
     display: flex;
+    flex-wrap: wrap;
     padding-top: 10px;
     padding-left: 100px;
 }
 
 .flex_item{
-    display: flex;	
+    display: flex;
+    flex-wrap: wrap;
     margin-right: 30px;
     width: 150px;
 }
@@ -100,5 +102,4 @@ main h3{
     width: 150px;
     height:150px;
     border-radius:50%;
-    background-image: url("../img/white.png");
 }
