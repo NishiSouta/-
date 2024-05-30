@@ -11,13 +11,30 @@
         <p><img class="rogo" src="img/AGB.png" alt="写真" width="200" height="180"></p><!-- ロゴ  -->
     
 
-    <div id="centerl"><a href="account-itiran.php"class="btn">アカウント</a></div><!-- アカウント  -->
-    <div id="centerr"><a href="comment-itiran.php"class="btn">コメント</a></div> <!-- コメント  -->
-
-
+   <!-- テーマの一覧表示  -->
+   <?php require 'db-connect.php'; ?>
+   
+   <h3>テーマ</h3>
+        <div class="flex_box">
+            <?php
+                $pdo=new PDO($connect,USER,PASS);
+                $sql=$pdo->query('select * from Theme');
+                $cnt = 0;
+                foreach($sql as $row){
+                    if( $cnt>6 ){
+                        break;
+                    }
+                    echo '<a href="detail.php?id=',$row['theme_id'],'"><div class="flex_item">',
+                            '<img src="img/',$row['Theme_jpg'],'.jpg" class="img_game" alt="写真">',
+                            '<div class="game_title">',$row['theme_name'],"</div>",
+                        '</div></a>';
+                    $cnt++;
+                }
+        ?>
+    </div>
     <div id="center"><p><h2>テーマ</h2></p></div>
-    <div id="centerl"><a href="admin-top.php"class="btn">戻る</a></div> <!-- 登録  -->
-    <div id="centerr"><a href="theme-delete.php"class="btn">登録</a></div> <!-- 削除  -->
-
+    <div id="centerl"><a href="admin-top.php"class="btn">戻る</a></div> <!-- 戻る  -->
+    <div id="centerr"><a href="theme-"class="btn">登録</a></div> <!-- 登録  -->
+    
 </body>
 </html>
