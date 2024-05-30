@@ -31,30 +31,31 @@
     <main>
     
   
-    <h3 class="h3_thema">テーマを選択してください</h3>
-    <div class="thema">
+    <h3 class="h3_theme">テーマを選択してください</h3>
+    <div class="theme">
     <div class="flex_box">
 <?php
-
+    echo '<form action="favorite-insert-output" method="POST">';
     $pdo=new PDO($connect, USER, PASS);
 
     $sql=$pdo->query('select * from Theme ');
     foreach($sql as $row){
         $id=$row['theme_id'];
-
-        echo '<div class="flex_item"><img alt="image" src="img/', $row['Theme_jpg'], '.jpg" class="img_game"  height="150" width="150">';
-
-        echo '<span><h4>', $row['theme_name'],'</span></div>';
-
+        echo '<div class="flex_item">';
+        echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><label><img alt="image" src="img/', $row['Theme_jpg'], '.jpg" class="img_game" height="150" width="150">';
+        echo '<h4>', $row['theme_name'],'</div></label>';
+       
     }
-        
 
     
 
 ?>
 </div>
-<a class="nes-btn"  id="insert" href="#">登録</a>
+<p></p>
+<input type="submit" class="nes-btn"  id="insert" value="登録">
+
 </div>
+</form>
 </main>
 </body>
 </html>

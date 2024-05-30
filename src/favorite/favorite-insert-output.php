@@ -29,22 +29,31 @@
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
     </header>
     <main>
-    <div class="thema">
+    
     <div class="flex_box">
+    <div class="theme">
 <?php 
-if(isset($_SESSION['customer'])){
-    $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('insert into favorite(`theme_id`, `user_id`) value(?,?)');
-    $sql->execute([$_SESSION['customer']['id'], $_GET['id']]);
-    echo '登録完了しました。';
-    echo ' <form action="m-home.php" method="post">';
-    echo '<input type="submit" value="プロフィールへ戻る" class="button2">';
-    echo '</form>';
-     require 'favorite.php';
-    }else {
-        echo 'お気に入りに追加するには、ログインしてください。';
+    // if(isset($_SESSION['customer'])){
+        if (isset($_POST['theme_id']) ) {
+            $pdo=new PDO($connect, USER, PASS);
+            $theme_id = $_POST['theme_id'];
+            foreach($theme_id as $theme){
+                $sql=$pdo->prepare('insert into Favorite(`theme_id`, `user_id`) value(?,?)');
+                $sql->execute([(int)$theme,1 ]);
+                // echo ' <form action="m-home.php" method="post">';
+                // echo '<input type="submit" value="プロフィールへ戻る" class="button2">';
+                // echo '</form>';
+            }
+            echo '登録完了しました。';
+        }else{
 
-    }
+        }
+    // }else {
+    //                 echo 'お気に入りに追加するには、ログインしてください。';
+
+    // }
+
+
 
 ?>
 </div>
