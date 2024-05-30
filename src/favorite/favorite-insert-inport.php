@@ -13,6 +13,27 @@
     <title>お気に入り</title>
 </head>
 <body>
+<style>
+    .checkbox label {
+  position: relative;
+  display: block;
+}
+.checkbox label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox label input[type="checkbox"] + span {
+  display: block;
+  color: black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.checkbox label input[type="checkbox"]:checked + span {
+  background-color: blue;
+  color: white;
+}
+   
+</style>   
 <div class="header">
 
     </div>
@@ -20,10 +41,10 @@
     <header>
         <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="get" id="form" action="自分のサイトURL">
-            <div class="nes-field">
+            <!-- <div class="nes-field">
                 <label for="search_field"></label>
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
-            </div>
+            </div> -->
         </form>
         <a class="nes-btn"  id="prof" href="#">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
@@ -35,15 +56,17 @@
     <div class="theme">
     <div class="flex_box">
 <?php
-    echo '<form action="favorite-insert-output" method="POST">';
+    echo '<form action="favorite-insert-output.php" method="POST">';
     $pdo=new PDO($connect, USER, PASS);
 
     $sql=$pdo->query('select * from Theme ');
     foreach($sql as $row){
         $id=$row['theme_id'];
         echo '<div class="flex_item">';
-        echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><label><img alt="image" src="img/', $row['Theme_jpg'], '.jpg" class="img_game" height="150" width="150">';
-        echo '<h4>', $row['theme_name'],'</div></label>';
+        echo '<div class="checkbox">';
+        echo '<label><img alt="image" src="img/', $row['Theme_jpg'], '.jpg" class="img_game" height="150" width="150">';
+        echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><span>',$row['theme_name'],'</span>';
+        echo '</label></div></div>';
        
     }
 
@@ -51,7 +74,9 @@
 
 ?>
 </div>
-<p></p>
+
+<br>
+<br>
 <input type="submit" class="nes-btn"  id="insert" value="登録">
 
 </div>

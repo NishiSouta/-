@@ -20,18 +20,18 @@
     <header>
         <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="get" id="form" action="自分のサイトURL">
-            <div class="nes-field">
+            <!-- <div class="nes-field">
                 <label for="search_field"></label>
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
-            </div>
+            </div> -->
         </form>
         <a class="nes-btn"  id="prof" href="#">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
     </header>
     <main>
     
-    <div class="flex_box">
-    <div class="theme">
+
+    <div class="theme_output">
 <?php 
     // if(isset($_SESSION['customer'])){
         if (isset($_POST['theme_id']) ) {
@@ -40,11 +40,14 @@
             foreach($theme_id as $theme){
                 $sql=$pdo->prepare('insert into Favorite(`theme_id`, `user_id`) value(?,?)');
                 $sql->execute([(int)$theme,1 ]);
-                // echo ' <form action="m-home.php" method="post">';
-                // echo '<input type="submit" value="プロフィールへ戻る" class="button2">';
-                // echo '</form>';
+             
             }
             echo '登録完了しました。';
+            echo '<br>';
+            echo '<br>';
+            echo ' <form action="profile.php" method="post">';
+            echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
+            echo '</form>';
         }else{
 
         }

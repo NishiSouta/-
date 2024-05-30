@@ -13,6 +13,31 @@
     <title>お気に入り</title>
 </head>
 <body>
+<style>
+    .checkbox label {
+  position: relative;
+  display: block;
+}
+.checkbox label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox label input[type="checkbox"] + span {
+  display: block;
+  color: black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.checkbox label input[type="checkbox"]:checked + span {
+  background-color: blue;
+  color: white;
+}
+.p_theme{
+    padding-left: 130px;
+
+
+}
+</style>  
 <div class="header">
 
     </div>
@@ -20,10 +45,10 @@
     <header>
         <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="get" id="form" action="自分のサイトURL">
-            <div class="nes-field">
+            <!-- <div class="nes-field">
                 <label for="search_field"></label>
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
-            </div>
+            </div> -->
         </form>
         <a class="nes-btn"  id="prof" href="#">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
@@ -32,24 +57,29 @@
     
   
     <h3 class="h3_theme">テーマを選択してください</h3>
+    <p class="p_theme">お気に入り一覧</p>
     <div class="theme">
     <div class="flex_box">
-        <a>お気に入り一覧</a>
-        <br>
+   
+       
 <?php
-    echo '<form action="favorite-delete-output" method="POST">';
+    echo '<form action="favorite-delete-output.php" method="POST">';
 
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare("SELECT * from Favorite 
                         LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=?");
     $sql->execute([1]);
+
     foreach($sql as $row){
-                $id=$row['theme_id'];
                 echo '<div class="flex_item">';
-                echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><label><img alt="image" src="img/', $row['Theme_jpg'], '.jpg" class="img_game" height="150" width="150">';
-                echo '<h4>', $row['theme_name'],'</div></label>';
+                echo '<div class="checkbox">';
+                echo '<label><img alt="image" src="img/', $row['Theme_jpg'], '.jpg" class="img_game" height="150" width="150">';
+                echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><span>', $row['theme_name'],'</span>';
+                echo '</label></div></div>';
             
-            }
+
+    }
+            
 
 
 

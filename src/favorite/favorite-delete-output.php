@@ -20,35 +20,39 @@
     <header>
         <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="get" id="form" action="自分のサイトURL">
-            <div class="nes-field">
+            <!-- <div class="nes-field">
                 <label for="search_field"></label>
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
-            </div>
+            </div> -->
         </form>
         <a class="nes-btn"  id="prof" href="#">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
     </header>
     <main>
     
-    <div class="flex_box">
-    <div class="theme">
+
+    <div class="theme_output">
 <?php
 // if(isset($_SESSION['customer'])){
     if (isset($_POST['theme_id']) ) {
         $pdo=new PDO($connect, USER, PASS);
         $theme_id = $_POST['theme_id'];
+        foreach($theme_id as $theme){
         $sql=$pdo->prepare('delete from Favorite where theme_id=?');
-        $sql->execute([(int)$theme_id]);
-        echo 'お気に入りから削除しました。';
-         // echo ' <form action="m-home.php" method="post">';
-                // echo '<input type="submit" value="プロフィールへ戻る" class="button2">';
-                // echo '</form>';
+        $sql->execute([(int)$theme]);
+        }
+        echo '削除完了しました。';
+        echo '<br>';
+        echo '<br>';
+         echo ' <form action="profile.php" method="post">';
+                echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
+                echo '</form>';
     
     }else{
 
     }
 // }else {
-//     echo 'お気に入りから商品を削除するには、ログインしてください。';
+//     echo 'お気に入りから削除するには、ログインしてください。';
 // }
 ?>
 
