@@ -35,6 +35,7 @@
     <div class="theme">
     <div class="flex_box">
         <a>お気に入り一覧</a>
+        <br>
 <?php
     echo '<form action="favorite-delete-output" method="POST">';
 
