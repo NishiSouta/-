@@ -22,8 +22,8 @@
                 <div class="actions">
                     <button onclick="updateAccount()">アカウント更新</button>
                     <button onclick="deleteAccount()">アカウント削除</button>
-                    <button onclick="addFavorite()">お気に入り登録</button>
-                    <button onclick="removeFavorite()">お気に入り削除</button>
+                    <button onclick="insertFavorite()">お気に入り登録</button>
+                    <button onclick="deleteFavorite()">お気に入り削除</button>
                 </div>
                 <script>
     function updateAccount() {
@@ -36,14 +36,14 @@
         window.location.href = 'accountdelete.php';
     }
 
-    function addFavorite() {
+    function insertFavorite() {
         // お気に入り登録ページへの遷移
-        window.location.href = '../favorite/favorite-insert-input.php';
+        window.location.href = 'favorite-insert-inport.php';
     }
 
-    function removeFavorite() {
+    function deleteFavorite() {
         // お気に入り削除ページへの遷移
-        window.location.href = '../favorite/favorite-delete-input.php';
+        window.location.href = 'favorite-delete-inport.php';
     }
 </script>
             </div>
