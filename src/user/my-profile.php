@@ -25,6 +25,27 @@
                     <button onclick="addFavorite()">お気に入り登録</button>
                     <button onclick="removeFavorite()">お気に入り削除</button>
                 </div>
+                <script>
+    function updateAccount() {
+        // アカウント更新ページへの遷移
+        window.location.href = 'up_account.php';
+    }
+
+    function deleteAccount() {
+        // アカウント削除ページへの遷移
+        window.location.href = 'accountdelete.php';
+    }
+
+    function addFavorite() {
+        // お気に入り登録ページへの遷移
+        window.location.href = '../favorite/favorite-insert-input.php';
+    }
+
+    function removeFavorite() {
+        // お気に入り削除ページへの遷移
+        window.location.href = '../favorite/favorite-delete-input.php';
+    }
+</script>
             </div>
         </main>
     </div>
