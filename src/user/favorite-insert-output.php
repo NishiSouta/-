@@ -39,7 +39,7 @@
             $theme_id = $_POST['theme_id'];
             foreach($theme_id as $theme){
                 $sql=$pdo->prepare('insert into Favorite(`theme_id`, `user_id`) value(?,?)');
-                $sql->execute([(int)$theme,1 ]);
+                $sql->execute([(int)$theme,47 ]);
              
             }
             echo '登録完了しました。';
