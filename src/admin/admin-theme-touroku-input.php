@@ -6,9 +6,8 @@
     <title>テーマ登録画面</title>
 </head>
 <body>
-<form action="admin-theme-touroku-output.php" method="post" enctype="multipart/form-data">
-        
-        <input type="file" id="img" name="img" accept="img/*" required><br><br>
+    <form action="admin-theme-touroku-output.php" method="post" enctype="multipart/form-data">
+        <input type="file" id="img" name="img" accept="image/*" required><br><br>
         <label for="name">テーマ名:</label>
         <textarea id="name" name="name" required></textarea><br><br>
         <input type="submit" value="登録">
