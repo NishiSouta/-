@@ -1,3 +1,40 @@
+<?php
+// セッションを開始する
+session_start();
+
+require 'db-connect.php'; // データベース接続をインクルード
+
+// セッションからユーザーIDを取得
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+} else {
+    die("ユーザーIDが設定されていません。");
+}
+
+// データベースからユーザー情報を取得
+$sql = "SELECT user_icon, user_name FROM User WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+if ($stmt === false) {
+    die("SQLステートメントの準備に失敗しました: " . $conn->error);
+}
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+    $avatar_url = $user['user_icon'];
+    $name = $user['user_name'];
+} else {
+    // ユーザーが見つからない場合のフォールバック値
+    $avatar_url = 'img/sumabura.png';
+    $name = '不明なユーザー';
+}
+$stmt->close();
+$conn->close();
+?>
+<?php require 'header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,15 +47,13 @@
     <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
-    <?php require 'db-connect.php'; ?>
-    <?php require 'header.php'; ?>
     <div class="container">
         <main>
             <div class="profile">
                 <div class="avatar">
-                    <img src="path/to/avatar.png" alt="ユーザーアバター">
+                    <img src="<?php echo htmlspecialchars($avatar_url); ?>" alt="ユーザーアバター">
                 </div>
-                <h2>name</h2>
+                <h2><?php echo htmlspecialchars($name); ?></h2>
                 <div class="actions">
                     <button onclick="updateAccount()">アカウント更新</button>
                     <button onclick="deleteAccount()">アカウント削除</button>
