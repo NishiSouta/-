@@ -6,24 +6,22 @@
     <title>テーマ登録結果画面</title>
 </head>
 <body>
+<?php
+require 'db-connect.php';
 
+$conn = new PDO($connect, USER, PASS);
 
-<?php require 'db-connect.php'; ?>
-<?php   
-$conn=new PDO($connect,USER,PASS);
-// フォームからの入力を取得
-// フォームからの入力を取得
 $name = $_POST['name'];
-$description = $_POST['img'];
+$description = $_FILES['img']['name'];  // $_POST['img']ではなく$_FILES['img']['name']を使用
 
 // 画像アップロード処理
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["img"]["name"]);
+//$target_dir = "img/";
+$target_file = /*$target_dir .*/ basename($_FILES["img"]["name"]);
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 // 画像ファイルのバリデーション
 $check = getimagesize($_FILES["img"]["tmp_name"]);
-if($check === false) {
+if ($check === false) {
     die("ファイルは画像ではありません。");
 }
 
@@ -33,10 +31,15 @@ if ($_FILES["img"]["size"] > 5000000) {
 }
 
 // 画像ファイル形式の制限
-$allowed_types = array("jpg", "jpeg", "png", "gif");
+$allowed_types = ["jpg", "jpeg", "png", "gif"];
 if (!in_array($imageFileType, $allowed_types)) {
     die("許可されていないファイル形式です。");
 }
+
+// アップロードディレクトリの存在確認と作成
+/*if (!is_dir($target_dir)) {
+    mkdir($target_dir, 0777, true);
+}*/
 
 // 画像ファイルのアップロード
 if (!move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
@@ -45,9 +48,7 @@ if (!move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
 
 try {
     // テーマを追加するためのSQLクエリ
-    $sql = "INSERT INTO themes (theme_name, theme_jpg) VALUES (:name, :img)";
-
-    // プリペアドステートメントの作成
+    $sql = "INSERT INTO Theme (theme_name, theme_jpg) VALUES (:name, :img)";
     $stmt = $conn->prepare($sql);
 
     // パラメータのバインド
