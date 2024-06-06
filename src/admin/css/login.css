@@ -39,3 +39,25 @@ p{
   flex-direction: column;
   gap: 1em;
 }
+  #file-button {
+    position: absolute;
+    top: 320px;
+    left: 750px;
+}
+
+#theme-button {
+    position: absolute;
+    top: 320px;
+    left: 1050px;
+}
+
+#touroku-button {
+    position: absolute;
+    top: 320px;
+    left: 1550px;
+}
+#modoru-button{
+    position: absolute;
+    top: 220px;
+    left: 1550px;   
+}
