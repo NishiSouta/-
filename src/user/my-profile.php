@@ -16,7 +16,6 @@
     <div class="container">
         <main>
             <div class="profile">
-                <div class="avatar">
                 <?php
         $pdo=new PDO($connect, USER, PASS);
             $sql=$pdo->prepare('select * from User where user_id = ? ');
