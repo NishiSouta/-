@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>テーマ登録結果画面</title>
 </head>
 <body>
@@ -57,7 +58,8 @@ try {
 
     // クエリの実行
     if ($stmt->execute()) {
-        echo "テーマが登録されました。";
+        echo "テーマが登録完了";
+        echo '<a href="admin-top.php">TOPへ戻る</a>';
     } else {
         echo "エラー: テーマの登録に失敗しました。";
     }
