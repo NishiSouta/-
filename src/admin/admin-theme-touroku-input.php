@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>テーマ登録画面</title>
 </head>
 <body>
@@ -11,6 +12,7 @@
         <label for="name">テーマ名:</label>
         <textarea id="name" name="name" required></textarea><br><br>
         <input type="submit" value="登録">
+        <a href="admin-top.php">戻る</a>
     </form>
 </body>
 </html>
