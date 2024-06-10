@@ -1,0 +1,21 @@
+body{
+    background-image: url('img/account.png');
+    background-size: 100% 8000%;
+    background-repeat: no-repeat;
+}
+p{
+    text-align: center;
+}
+.a{
+    position:absolute;
+    top:220px;
+    left:520px;
+}
+.b{
+    position:absolute;
+    top:220px;
+    left:520px;
+}
+#center{
+    text-align: center;
+}
