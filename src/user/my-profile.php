@@ -21,7 +21,7 @@
             $sql=$pdo->prepare('select * from User where user_id = ? ');
             $sql->execute([47]);
             foreach($sql as $row){
-                echo '<img alt="image" src="img/', $row['user_icon'], '.jpg" class="img_game1">';
+                echo '<img alt="image" src="img/', $row['user_icon'], '.jpg" class="avatar">';
                 echo '<br><br><span class="name">',$row['user_name'],'</span>';
             }
             ?>
@@ -36,17 +36,17 @@
         // アカウント更新ページへの遷移
         window.location.href = 'up_account.php';
     }
-
+ 
     function deleteAccount() {
         // アカウント削除ページへの遷移
         window.location.href = 'accountdelete.php';
     }
-
+ 
     function insertFavorite() {
         // お気に入り登録ページへの遷移
         window.location.href = 'favorite-insert-inport.php';
     }
-
+ 
     function deleteFavorite() {
         // お気に入り削除ページへの遷移
         window.location.href = 'favorite-delete-inport.php';
