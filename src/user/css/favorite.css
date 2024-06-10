@@ -88,6 +88,9 @@ main h3{
     padding-top: 10px;
     padding-left: 100px;
     text-align: center;
+    flex-wrap: wrap;
+    width: 1200px;
+     margin:  auto;
 }
 
 .flex_item{
@@ -98,6 +101,7 @@ main h3{
     flex-wrap: wrap;
     text-align: center;
     display:inline-block
+    
 
 }
 
