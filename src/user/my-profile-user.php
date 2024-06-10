@@ -36,21 +36,48 @@
 
         $pdo=new PDO($connect, USER, PASS);
             $sql2=$pdo->prepare('SELECT * from Favorite 
-                                LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=?');
+                                LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
             $sql2->execute([47]);
-                echo '<p class="p_mpu">お気に入り</p>';
-            foreach($sql2 as $row){
-                echo '<div class="flex_item">';
-                echo '<a href="detail.php?id=', $row['theme_id'], '"><img src="img/',$row['theme_jpg'],'".jpg" class="img_game" alt="写真">';
-                echo '</div>';
-            }
+            echo '<p class="p_mpu">お気に入り</p>';
+            echo '<div class="flex_box">';
+            
+            foreach($sql2 as $row2){
+                    // echo '<a href="detail.php?id=', $row2['theme_id'], '">';
+                    $user_id = $row2['user_id'];
+                    $theme_id = $row2['theme_id'];
+                }
+                $pdo=new PDO($connect, USER, PASS);
+                    $sql3=$pdo->prepare('select distinct theme_jpg from Favorite 
+                                         LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
+                    $sql3->execute(array($user_id));
+                   
+                        foreach($sql3 as $row3){
+                            echo '<div class="flex_item">';
+                            echo '<a href="detail.php?id=', $theme_id, '"><img src="img/',$row3['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+                            echo '</div>';
+                        }
+
+            // $sql2=$pdo->prepare('SELECT * from Favorite 
+            //                     LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=?');
+            // $sql2->execute([47]);
+            //     echo '<p class="p_mpu">お気に入り</p>';
+            // foreach($sql2 as $row){
+            //     echo '<div class="flex_item">';
+            //     $list = array();
+            //     if(){
+            //         array_push($list, ,$row['theme_id']);
+            //     echo '<a href="detail.php?id=', $row['theme_id'], '"><img src="img/',$row['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+            //     echo '</div>';
+            //     }
+            // }
 
     ?>
+    </div>
     <form action="#" method="POST">
         <br>
         <input type="submit" class="nes-btn"  id="insert" value="戻る">
     </form>
-    </div>
+    
     </main>
 </body>
 </html>
