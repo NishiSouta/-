@@ -14,7 +14,6 @@ body {
     font-family: 'misakigothic';  /* フォント設定 */
     margin: 0; /* 余白なし */
     height: 100%;
-    padding: 0; /* パディングなし */
 }
  
 /* コンテナの設定 */
@@ -36,12 +35,13 @@ body {
  
 /* ヘッダーの設定 */
 header {
-    position: sticky; /* スクロールしてもヘッダーが固定される */
-    z-index: 999; /* ヘッダーを最前面に表示 */
-    padding: 10px 0; /* 上下に10pxのパディングを設定 */
-    width: 100%; /* 幅を100%に設定 */
-    height: 100px; /* 高さを100pxに設定 */
-    background-color: #F4F4EB; /* 背景色 */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    background-color: #F4F4EB;
 }
  
 /* ロゴのスタイル設定 */
@@ -53,6 +53,11 @@ header {
 .logo p {
     margin: 0; /* 余白なし */
     font-size: 12px; /* フォントサイズ */
+}
+
+.logo{
+    width: 170px;
+    height: 100px;
 }
  
 /* ナビゲーションの設定 */
@@ -70,17 +75,38 @@ nav a {
 }
  
 /* プロファイルセクションの設定 */
-.profile {
-    text-align: center; /* 中央揃え */
-    margin-top: 60px; /* 上部の余白 */
+#prof{
+    position: fixed;
+    top: 20px;
+    left: 900px;
+}
+
+#logout{
+    position: fixed;
+    top: 20px;
+    left: 1050px;
 }
  
+
+#form{
+    display: flex;
+    justify-content: center; 	
+    height:50px;
+    display: flex;
+    justify-content: center; 	
+    height:50px;
+    position: fixed;
+    top: 15px;
+    left: 300px;
+}
+
 /* アバター画像のスタイル設定 */
 .avatar {
-    width: 150px; /* 幅を150pxに設定 */
-    height: 150px; /* 高さを150pxに設定 */
-    border-radius: 50%; /* 丸くする */
-    border: 5px solid #fff; /* 白い枠を追加 */
+    background-position: center;
+        width: 220px;
+        height:220px;
+        border-radius:80%;
+        background-image: url("./img/white.png");
 }
  
 /* 名前のスタイル設定 */
@@ -99,6 +125,12 @@ nav a {
     cursor: pointer; /* カーソルをポインタに設定 */
 }
  
+.profile{
+    text-align: center;
+    padding: 60px;
+
+}
+
 /* ボタンのホバー時のスタイル設定 */
 .actions button:hover {
     background-color: #ddd; /* 背景色を変更 */
