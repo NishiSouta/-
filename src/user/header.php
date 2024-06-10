@@ -1,5 +1,5 @@
 <header>
-    <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
+    <a href="top.php"><img src="img/AGB.png" class="logo"></a>
     <form method="post" id="form" action="search.php">
         <div class="nes-field">
             <label for="search_field"></label>
