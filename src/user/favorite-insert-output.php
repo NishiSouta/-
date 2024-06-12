@@ -33,19 +33,19 @@
 
     <div class="theme_output">
 <?php 
-    // if(isset($_SESSION['customer'])){
+    // if(isset($_SESSION['user'])){
         if (isset($_POST['theme_id']) ) {
             $pdo=new PDO($connect, USER, PASS);
             $theme_id = $_POST['theme_id'];
             foreach($theme_id as $theme){
                 $sql=$pdo->prepare('insert into Favorite(`theme_id`, `user_id`) value(?,?)');
-                $sql->execute([(int)$theme,47 ]);
+                $sql->execute([(int)$theme,$_SESSION['user']['user_id']]);
              
             }
             echo '登録完了しました。';
             echo '<br>';
             echo '<br>';
-            echo ' <form action="profile.php" method="post">';
+            echo ' <form action="my-profile.php" method="post">';
             echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
             echo '</form>';
         }else{
