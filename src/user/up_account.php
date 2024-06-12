@@ -1,8 +1,7 @@
 <?php
 include 'db-connect.php';
-
+$pdo = new PDO($connect, USER, PASS);
 session_start();
-$user_id = $_SESSION['user_id'];
 $error_message = "";
 
 // 現在のユーザー情報を取得
