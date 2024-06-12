@@ -7,5 +7,5 @@
         </div>
     </form>
     <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
-    <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
+    <a class="nes-btn" id="logout" href="logout-input.php">ログアウト</a>
 </header>
