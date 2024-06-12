@@ -22,7 +22,7 @@ try {
  
     // ユーザーデータが見つかった場合、セッションに保存し、ユーザートップページにリダイレクト
     if ($user) {
-        $_SESSION['user'] = [
+        $_SESSION['user_id'] = [
             'user_id' => $user['user_id'],
             'user_name' => $user['user_name'],
             'user_pw' => $user['user_pw'] // パスワードをセッションに保存することは推奨されません。
