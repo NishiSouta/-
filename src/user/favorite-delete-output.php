@@ -25,7 +25,7 @@
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
             </div> -->
         </form>
-        <a class="nes-btn"  id="prof" href="#">プロフィール</a>
+        <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
     </header>
     <main>
