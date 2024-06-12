@@ -34,9 +34,8 @@
 }
 .p_theme{
     padding-left: 130px;
-
-
 }
+
 </style>  
 <div class="header">
 
@@ -50,7 +49,7 @@
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
             </div> -->
         </form>
-        <a class="nes-btn"  id="prof" href="#">プロフィール</a>
+        <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
     </header>
     <main>
@@ -59,6 +58,7 @@
     <h3 class="h3_theme">テーマを選択してください</h3>
     <p class="p_theme">お気に入り一覧</p>
     <div class="theme">
+
     <div class="flex_box">
    
        
@@ -66,30 +66,23 @@
     echo '<form action="favorite-delete-output.php" method="POST">';
 
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare("SELECT * from Favorite 
-                        LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=?");
-    $sql->execute([1]);
-
-    foreach($sql as $row){
-                echo '<div class="flex_item">';
-                echo '<div class="checkbox">';
-                echo '<label><img src="img/',$row['theme_jpg'],'".jpg" class="img_game" alt="写真">';
-                echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><span>', $row['theme_name'],'</span>';
-                echo '</label></div></div>';
-            
-
-    }
-            
-
-
-
-    
+             $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
+                                  LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
+             $sql2->execute(array($_SESSION['user']['user_id']));
+            foreach($sql2 as $row2){
+                   
+                    echo '<div class="flex_item">';
+                    echo '<div class="checkbox">';
+                    echo '<label><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+                    echo '<input type="checkbox" name="theme_id[]" value="',$row2['theme_id'],'"><span>', $row2['theme_name'],'</span>';
+                    echo '</label></div></div>';
+                   }
 
 ?>
 </div>
-<p></p>
+<br>
+<br>
 <input type="submit" class="nes-btn"  id="insert" value="削除">
-
 </div>
 </form>
 </main>

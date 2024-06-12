@@ -21,55 +21,32 @@
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
             </div>
         </form>
-        <a class="nes-btn"  id="prof" href="#">プロフィール</a>
+        <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
     </header>
     <div class="profile-user">
     <?php
         $pdo=new PDO($connect, USER, PASS);
             $sql=$pdo->prepare('select * from User where user_id = ? ');
-            $sql->execute([47]);
+            $sql->execute([$_SESSION['user']['user_id']]);
             foreach($sql as $row){
                 echo '<img alt="image" src="img/', $row['user_icon'], '.jpg" class="img_game1">';
                 echo '<br><br><span class="name">',$row['user_name'],'</span>';
             }
 
-        $pdo=new PDO($connect, USER, PASS);
-            $sql2=$pdo->prepare('SELECT * from Favorite 
-                                LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-            $sql2->execute([47]);
-            echo '<p class="p_mpu">お気に入り</p>';
-            echo '<div class="flex_box">';
-            
-            foreach($sql2 as $row2){
-                    // echo '<a href="detail.php?id=', $row2['theme_id'], '">';
-                    $user_id = $row2['user_id'];
-                    $theme_id = $row2['theme_id'];
-                }
                 $pdo=new PDO($connect, USER, PASS);
-                    $sql3=$pdo->prepare('select distinct theme_jpg from Favorite 
+                    $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
                                          LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-                    $sql3->execute(array($user_id));
-                   
-                        foreach($sql3 as $row3){
+                    $sql2->execute(array($_SESSION['user']['user_id']));
+                            echo '<p class="p_mpu">お気に入り</p>';
+                            echo '<div class="flex_box">';   
+                        foreach($sql2 as $row2){
+                                         
                             echo '<div class="flex_item">';
-                            echo '<a href="detail.php?id=', $theme_id, '"><img src="img/',$row3['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+                            echo '<a href="detail.php?id=', $row2['theme_id'], '"><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
                             echo '</div>';
                         }
 
-            // $sql2=$pdo->prepare('SELECT * from Favorite 
-            //                     LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=?');
-            // $sql2->execute([47]);
-            //     echo '<p class="p_mpu">お気に入り</p>';
-            // foreach($sql2 as $row){
-            //     echo '<div class="flex_item">';
-            //     $list = array();
-            //     if(){
-            //         array_push($list, ,$row['theme_id']);
-            //     echo '<a href="detail.php?id=', $row['theme_id'], '"><img src="img/',$row['theme_jpg'],'".jpg" class="img_game" alt="写真">';
-            //     echo '</div>';
-            //     }
-            // }
 
     ?>
     </div>
