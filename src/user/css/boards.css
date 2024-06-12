@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+}
+
+main {
+    flex: 2;
+    padding: 20px;
+}
+
+aside {
+    flex: 1;
+    padding: 20px;
+}
+
+.board-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.board-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.board-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.board-content {
+    font-size: 1em;
+}
+
+.board-form {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+}
