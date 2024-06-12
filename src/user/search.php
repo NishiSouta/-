@@ -30,7 +30,7 @@
                         $sql->execute(['%'.$_POST['keyword'].'%']);
                         foreach ($sql as $row){
                             echo '<a href="detail.php?id=',$row['theme_id'],'"><div class="flex_item">',
-                                    '<img src="img/',$row['Theme_jpg'],'.jpg" class="img_game" alt="写真">',
+                                    '<img src="img/',$row['theme_jpg'],'.jpg" class="img_game" alt="写真">',
                                     '<div class="game_title">',$row['theme_name'],"</div>",
                                 '</div></a>';
                         }
