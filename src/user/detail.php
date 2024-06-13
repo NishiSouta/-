@@ -31,6 +31,7 @@ try {
 </head>
 <body>
 <?php require 'header.php'; ?>
+<?php require 'detail-create.php'; ?>
 <div class="container">
     <main>
         <div class="board-list">
