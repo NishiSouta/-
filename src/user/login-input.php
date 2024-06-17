@@ -41,7 +41,7 @@
             <input type="submit" name="regist" value="Login">
             
             <div class="sinki">
-        <a href="../sinki_nyuuryoku.php">新規登録はこちら</a>
+        <a href="./sinki_nyuuryoku.php">新規登録はこちら</a>
         </div>
         
     <?php if (!empty($error_message)) { ?>
