@@ -1,21 +1,66 @@
-body{
+body {
     background-image: url('../img/sinki.png');
-    background-size: 100% 190%;
+    background-size: 100% 130%;
     background-repeat: no-repeat;
 }
-p{
+
+p {
     text-align: center;
 }
-#center{
+
+#center {
     text-align: center;
 }
 #left{
     position: absolute;
-    top:250px;
-    left:550px;
+    top: 630px;
+    left: 530px;
 }
 #right{
     position: absolute;
-    top:250px;
-    right:550px;
+    top: 630px;
+    right: 530px;
+}
+.flex_box {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    justify-content: center;
+    gap: 10px;
+}
+
+.flex_item {
+    position: relative;
+    width: 150px;
+    text-align: center;
+}
+
+.img_game {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+/* 丸い画像 */
+.rounded-icon {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    background-color: white;
+}
+
+/* ラジオボタンの非表示 */
+input[type="radio"] {
+    display: none;
+}
+
+/* 選択された画像のふちを赤く */
+input[type="radio"]:checked + label img {
+    border: 3px solid red;
+    box-sizing: border-box;
 }

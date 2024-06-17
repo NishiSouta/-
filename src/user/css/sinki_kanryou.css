@@ -1,0 +1,13 @@
+body {
+    background-image: url('../img/sinki.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#center {
+    display: flex; /* flexboxを使用する */
+    flex-direction: column; /* コンテンツを縦方向に配置する */
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center; /* 横方向の中央揃え */
+    height: 100vh; /* ビューポートの高さいっぱいを使用する */
+}
