@@ -1,3 +1,10 @@
+@font-face {
+    font-family:'misakigothic';
+    src: url('misaki_gothic.eot');
+    src: url('misaki_gothic.woff') format('woff'),
+    url('misaki_gothic.ttf') format('truetype');
+}
+
 .container {
     display: flex;
 }
@@ -10,6 +17,30 @@ main {
 aside {
     flex: 1;
     padding: 20px;
+}
+
+/* ヘッダーの設定 */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    background-color: #F4F4EB;
+}
+
+/* プロファイルセクションの設定 */
+#prof{
+    position: fixed;
+    top: 20px;
+    left: 900px;
+}
+
+#logout{
+    position: fixed;
+    top: 20px;
+    left: 1050px;
 }
 
 .board-list {
