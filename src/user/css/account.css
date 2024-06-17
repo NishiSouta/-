@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url('../img/account.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -9,11 +9,32 @@ p{
 .a{
     position:relative
 }
+#left{
+    position: absolute;
+    top: 500px;
+    left: 530px;
+}
+#right{
+    position: absolute;
+    top: 500px;
+    right: 530px;
+}
 #center{
     text-align: center;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translateY(-50%) translateX(-50%);
-    -wevkit-transform: translateY(-50%) translateX(-50%);
+    display: flex; /* flexboxを使用する */
+    flex-direction: column; /* コンテンツを縦方向に配置する */
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center; /* 横方向の中央揃え */
+    height: 100vh; /* ビューポートの高さいっぱいを使用する */
+}
+.rounded-icon {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    background-color: white;
+}
+h2 {
+    color: white; /* h2の色を白に設定 */
 }
