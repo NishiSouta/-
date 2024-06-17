@@ -6,7 +6,7 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <link rel="stylesheet" href="sinki_nyuuryoku.css">
+    <link rel="stylesheet" href="css/sinki_nyuuryoku.css">
     <title>新規登録入力画面</title>
 </head>
 <body>
