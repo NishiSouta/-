@@ -19,10 +19,19 @@ session_start();
         <h3>お気に入り</h3>
         <div class="flex_box">
             <?php
-                for($s1=0; $s1<6; $s1++){
-                    echo '<div class="flex_item"><img src="img/white.png" class="img_game"></div>';
-                }
-            ?>
+    $pdo=new PDO($connect, USER, PASS);
+             $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
+                                  LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
+             $sql2->execute(array($_SESSION['user']['user_id']));
+            foreach($sql2 as $row2){
+                   
+                    echo '<div class="flex_item">';
+                    echo '<label><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+                    echo '<name="theme_id[]" value="',$row2['theme_id'],'"><span>', $row2['theme_name'],'</span>';
+                    echo '</label></div>';
+                   }
+
+?>
         </div>
         <h3>テーマ</h3>
         <div class="flex_box">
