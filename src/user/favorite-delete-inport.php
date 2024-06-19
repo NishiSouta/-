@@ -37,21 +37,14 @@
 }
 
 </style>  
-<div class="header">
 
-    </div>
-    
-    <header>
-        <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
-        <form method="get" id="form" action="自分のサイトURL">
-            <!-- <div class="nes-field">
-                <label for="search_field"></label>
-                <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
-            </div> -->
-        </form>
-        <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
-        <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
-    </header>
+<header>
+    <a href="top.php"><img src="img/AGB.png" class="logo"></a>
+    <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
+    <form action="logout.php" method="post">
+    <a class="nes-btn" id="logout" href="login-input.php">ログアウト</a>
+    </form>
+</header>
     <main>
     
   
