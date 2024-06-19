@@ -43,6 +43,23 @@ header {
     left: 1050px;
 }
 
+#form{
+    display: flex;
+    justify-content: center; 	
+    height:50px;
+    display: flex;
+    justify-content: center; 	
+    height:50px;
+    position: fixed;
+    top: 15px;
+    left: 300px;
+}
+
+.logo{
+    width: 170px;
+    height: 100px;
+}
+
 .board-list {
     display: grid;
     grid-template-columns: 1fr;
