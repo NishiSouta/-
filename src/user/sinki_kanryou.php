@@ -15,7 +15,7 @@
             <h2>新規登録完了</h2>
         </div>
         <div id="b">
-            <button onclick="location.href='./sinki_kannryou.php'">ログインへ戻る</button>
+            <button onclick="location.href='./login-input.php'">ログインへ戻る</button>
         </div>
     </div>
 </body>
