@@ -6,7 +6,7 @@
     <title>アカウント削除画面</title>
     <style>
         body {
-            background-image: url('img/accountdelete.png');
+            background-image: url('../img/accountdelete.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -90,4 +90,3 @@
     </div>
 </body>
 </html>
- 

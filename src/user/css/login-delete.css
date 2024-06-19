@@ -1,0 +1,65 @@
+
+body {
+    background-image: url('../img/accountdelete.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    position: relative;
+}
+
+#teamrogo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 70px;
+    height: auto;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+#centerikon {
+    color: black; /* テキストの色を白に設定 */
+}
+
+.form p {
+    margin-bottom: 20px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #cc0000;
+}
