@@ -4,7 +4,6 @@ $pdo = new PDO($connect, USER, PASS);
 session_start();
 $error_message = "";
 
-$user_id = $_SESSION['user_id'];
 
 // ユーザーアイコンの更新処理
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -94,11 +93,11 @@ try {
             </div>
             <div>
                 <label for="name"><h2>名前</h2></label>
-                <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['user_name']) ?>">
+                <input type="text" id="name" name="name" value="',$_SESSION['user_id']['user_name'],'">
             </div>
             <div>
                 <label for="mail"><h2>メールアドレス</h2></label>
-                <input type="email" id="mail" name="mail" value="<?= htmlspecialchars($user['user_mail']) ?>">
+                <input type="email" id="mail" name="mail" value="',$_SESSION['user_name'],'">
             </div>
             <div>
                 <label for="password"><h2>パスワード</h2></label>
