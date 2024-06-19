@@ -9,8 +9,7 @@
     <title>アカウント一覧画面</title> 
 </head>
 <body>
-        <p><img class="rogo" src="img/AGB.png" alt="写真" width="129" height="90"></p>
-    <div id="center"><p><h2>管理者ログイン</h2></p></div>
+      <h1>アカウント一覧</h1>
 
 <form action ="admin-login-output.php" method="post">
         <div id="center"><p><h2>ユーザ名<input type="text" name="login"></h2></p></div>
