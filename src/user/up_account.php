@@ -4,6 +4,7 @@ $pdo = new PDO($connect, USER, PASS);
 session_start();
 $error_message = "";
 
+$user_id = $_SESSION['user_id'];
 
 // ユーザーアイコンの更新処理
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
