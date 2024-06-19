@@ -1,6 +1,6 @@
 <?php
 session_start(); // セッションの開始は一度だけ行う
-
+unset($_SESSION['user_id']);
 // データベース接続設定
 const SERVER = 'mysql304.phy.lolipop.lan';
 const DBNAME = 'LAA1516804-budou';
