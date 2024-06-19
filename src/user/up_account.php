@@ -9,9 +9,9 @@ $user_id = $_SESSION['user_id'];
 // ユーザーアイコンの更新処理
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_FILES['user_icon']['name']) {
-        $target_dir = "img/";
+        $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["user_icon"]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         $new_image_name = uniqid() . '.' . $imageFileType;
         $target_path = $target_dir . $new_image_name;
 
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':mail', $mail);
             $stmt->bindParam(':password', $hashed_password);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-            $stmt->execute();
+            $stmt->execute(array($_SESSION['user']['user_id']));
 
             header("Location: up_kanryou.php");
             exit();
@@ -68,7 +68,6 @@ try {
     $error_message .= 'Error: ' . $e->getMessage();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -89,8 +88,7 @@ try {
         <form method="post" action="up_kanryou.php" enctype="multipart/form-data">
             <div class="user-icon">
                 <label for="user_icon_input">
-                <img src="<?php echo isset($user['user_icon']) ? 'img/'.$user['user_icon'] : 'img/default_icon.png'; ?>" id="user_icon_preview" class="rounded-icon">
-
+                    <img src="<?php echo isset($user['user_icon']) ? 'uploads/'.$user['user_icon'] : 'img/default_icon.png'; ?>" id="user_icon_preview" class="rounded-icon">
                 </label>
                 <input type="file" id="user_icon_input" name="user_icon" accept="image/*" style="display: none;" onchange="previewUserIcon(event)">
             </div>
@@ -107,8 +105,8 @@ try {
                 <input type="password" id="password" name="password">
             </div>
             <div id="left">
-                    <button onclick="history.back()">戻る</button>
-                </div>
+                <button onclick="history.back()">戻る</button>
+            </div>
             <div id="right">
                 <button type="submit">更新</button>
             </div>
