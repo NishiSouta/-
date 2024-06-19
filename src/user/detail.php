@@ -3,12 +3,21 @@ session_start();
 require 'db-connect.php';
 
 // ユーザーIDをセッションから取得
-$user_id = $_SESSION['user_id'];
-$theme_id = $_POST['theme_id'];
+if (isset($_SESSION['user']['user_id'])) {
+    $user_id = $_SESSION['user']['user_id'];
+} else {
+    // セッションにユーザーIDが存在しない場合の処理（未ログインなど）
+    header('Location: login.php');
+    exit;
+}
+
+// テーマIDを取得（例として固定値を設定）
+$theme_id = 1; // ここで実際のテーマIDを取得する必要があります
 
 // データベースから掲示板の情報を取得
 try {
     $pdo = new PDO($connect, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // エラーモードを設定する
     $sql = 'SELECT board_name, board_content FROM Board WHERE theme_id = :theme_id';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':theme_id', $theme_id, PDO::PARAM_INT);
@@ -16,7 +25,9 @@ try {
     $boards = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo 'Error: ' . $e->getMessage();
+    // データベース接続エラーの場合のエラーハンドリングを行う
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,7 +38,7 @@ try {
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <title>掲示板一覧</title>
-    <link rel="stylesheet" href="css/boards.css">
+    <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
 <?php require 'header.php'; ?>
