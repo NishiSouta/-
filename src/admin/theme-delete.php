@@ -78,7 +78,7 @@
     <br>
     <div style="display:inline-flex">
         <form action="#.php" method="POST">
-        <input type="submit" class="nes-btn2"  id="insert" value="登録">
+        <input type="submit" class="nes-btn2"  id="insert" value="削除">
         </form>
         <form action="admin-top.php" method="POST">        
         <input type="submit" class="nes-btn2"  id="insert" value="戻る">

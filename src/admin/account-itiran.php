@@ -11,6 +11,29 @@
     <title>アカウント一覧画面</title> 
 </head>
 <main>
+<style>
+    body{
+        background-image: url('img/gamen.png');
+        font-family:'misakigothic';
+        background-size: 100% 300%;
+        background-repeat: no-repeat;
+        
+        /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+        background-attachment: fixed;
+        
+        /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+        background-size: cover;
+        
+        /* 背景画像が読み込まれる前に表示される背景のカラー */
+        background-color: #464646;
+
+        margin: 70px;
+        color: #212529;
+        padding: 50px;
+        padding-left: 450px;
+
+    }
+</style>
 <h1>アカウント一覧</h1>
     <body>
     
