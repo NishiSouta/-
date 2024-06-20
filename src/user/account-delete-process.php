@@ -13,6 +13,18 @@ try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
+    // セッション変数の確認
+    if (!isset($_SESSION['user']['user_id'])) {
+        echo 'ログインされていないか、セッションが切れています。';
+        exit;
+    }
+ 
+    // POST変数の確認
+    if (!isset($_POST['password'])) {
+        echo 'パスワードが入力されていません。';
+        exit;
+    }
+ 
     // SQL文の準備と実行
     $sql = $pdo->prepare("SELECT * FROM User WHERE user_id = ? AND user_pw = ?");
     $sql->execute([$_SESSION['user']['user_id'], $_POST['password']]);
@@ -34,7 +46,7 @@ try {
         exit;
     } else {
         // パスワードが間違っている場合は削除しない
-        header('Location: accountdelete.php?error=1');
+        header('Location: account-delete.php?error=1');
         exit;
     }
 } catch (PDOException $e) {
