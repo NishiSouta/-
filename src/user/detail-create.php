@@ -1,27 +1,16 @@
-<?php
-session_start();
-require 'db-connect.php';
-
-// フォームから送信されたデータを取得
-$title = htmlspecialchars($_POST['title']);
-$content = htmlspecialchars($_POST['content']);
-$user_id = $_SESSION['user_id'];
-$theme_id = $_GET['theme_id'];
-
-// データベースに掲示板を挿入
-try {
-    $pdo = new PDO($connect, USER, PASS);
-    $sql = 'INSERT INTO Board (board_name, board_content, theme_id, user_id) VALUES (:title, :content, :theme_id, :user_id)';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':title', $title);
-    $stmt->bindParam(':content', $content);
-    $stmt->bindParam(':theme_id', $theme_id, PDO::PARAM_INT);
-    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $stmt->execute();
-
-    header('Location: boards.php?theme_id=' . $theme_id);
-    exit();
-} catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
-}
-?>
+<aside>
+    <div class="board-form nes-container is-rounded">
+        <h2>掲示板作成</h2>
+        <form method="post" action="create_board.php?theme_id=<?= htmlspecialchars($_GET['theme_id'] ?? '') ?>">
+            <div class="nes-field">
+                <label for="title">募集タイトル</label>
+                <input type="text" id="title" name="title" class="nes-input" required>
+            </div>
+            <div class="nes-field">
+                <label for="content">募集内容</label>
+                <textarea id="content" name="content" class="nes-textarea" required></textarea>
+            </div>
+            <button type="submit" class="nes-btn is-primary">作成</button>
+        </form>
+    </div>
+</aside>
