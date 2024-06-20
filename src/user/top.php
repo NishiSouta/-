@@ -40,7 +40,7 @@ session_start();
                 $sql=$pdo->query('select * from Theme');
                 $cnt = 0;
                 foreach($sql as $row){
-                    if( $cnt>6 ){
+                    if( $cnt>1000 ){
                         break;
                     }
                     echo '<a href="detail.php?id=',$row['theme_id'],'"><div class="flex_item">',
