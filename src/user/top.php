@@ -27,8 +27,8 @@ session_start();
                    
                     echo '<div class="flex_item">';
                     echo '<label><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
-                    echo '<name="theme_id[]" value="',$row2['theme_id'],'"><span>', $row2['theme_name'],'</span>';
-                    echo '</label></div>';
+                    echo '<a href="detail.php?id=',$row2['theme_id'],'"><span>', $row2['theme_name'],'</span>';
+                    echo '</label></div></a>';
                    }
 
 ?>
