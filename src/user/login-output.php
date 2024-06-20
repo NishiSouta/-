@@ -26,6 +26,8 @@ try {
         // ユーザーデータの取得
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
+
+        
         // ユーザーデータが見つかった場合、セッションに保存し、ユーザートップページにリダイレクト
         if ($user) {
             $_SESSION['user'] = [
