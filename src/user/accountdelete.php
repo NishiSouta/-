@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,7 +6,7 @@ session_start();
     <title>アカウント削除画面</title>
     <style>
         body {
-            background-image: url('../img/accountdelete.png');
+            background-image: url('img/accountdelete.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -40,7 +37,7 @@ session_start();
         }
  
         #centerikon {
-            color: black; /* テキストの色を白に設定 */
+            color: black;
         }
  
         .form p {
