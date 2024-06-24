@@ -37,12 +37,11 @@
         // アカウント更新ページへの遷移
         window.location.href = 'up_account.php';
     }
- 
     function deleteAccount() {
         // アカウント削除ページへの遷移
-        window.location.href = 'accountdelete.php';
+            window.location.href = 'accountdelete.php';
     }
- 
+
     function insertFavorite() {
         // お気に入り登録ページへの遷移
         window.location.href = 'favorite-insert-inport.php';
