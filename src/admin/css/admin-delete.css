@@ -20,11 +20,10 @@ body{
     /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
 
-    margin: 70px;
+    margin: 145px;
     color: #212529;
-    padding: 70px;
-    padding-left: 600px;
-
+    padding: 20px;
+    padding-left: 500px;
 }
 
 .nes-btn{

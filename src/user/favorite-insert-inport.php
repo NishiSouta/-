@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/favorite.css">
-    <title>お気に入り</title>
+    <title>お気に入り登録</title>
 </head>
 <body>
 <style>
@@ -34,13 +34,23 @@
 }
    
 </style>   
-    <header>
-    <a href="top.php"><img src="img/AGB.png" class="logo"></a>
-    <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
-    <form action="logout.php" method="post">
-    <a class="nes-btn" id="logout" href="login-input.php">ログアウト</a>
-    </form>
-</header>
+<div class="header">
+
+    </div>
+    
+    <!-- <header>
+        <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
+        <form method="get" id="form" action="自分のサイトURL">
+            <div class="nes-field">
+                <label for="search_field"></label>
+                <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
+            </div>
+        </form>
+        <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
+        <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
+    </header> -->
+
+    <?php require 'header.php'; ?>
     <main>
     
     <br>
@@ -52,7 +62,7 @@
     echo '<form action="favorite-insert-output.php" method="POST">';
     $pdo=new PDO($connect, USER, PASS);
 
-    $sql=$pdo->query('select * from Theme ');
+    if($sql=$pdo->query('select * from Theme ')){
     foreach($sql as $row){
        
         echo '<div class="flex_item">';
@@ -62,7 +72,10 @@
         echo '</label></div></div>';
        
     }
+    }else{
+      echo '登録できるテーマがありません。';
 
+    }
     
 
 ?>
@@ -70,10 +83,11 @@
 
 <br>
 <br>
-<input type="submit" class="nes-btn"  id="insert" value="登録">
-
-</div>
+<div style="display:inline-flex">
+<input type="submit" class="nes-btn2"  id="insert" value="登録">
 </form>
+</div>
+</div>
 </main>
 </body>
 </html>

@@ -9,6 +9,7 @@
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/admin-delete.css" />
 <body>
+   
     <?php
 
     if (isset($_POST['user_id']) ) {
