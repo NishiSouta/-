@@ -16,18 +16,18 @@
 <div class="header">
 
     </div>
-    
-    <header>
+    <?php require 'header.php'; ?>
+    <!-- <header>
         <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="get" id="form" action="自分のサイトURL">
-            <!-- <div class="nes-field">
+            <div class="nes-field">
                 <label for="search_field"></label>
                 <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
-            </div> -->
+            </div>
         </form>
         <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
         <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
-    </header>
+    </header> -->
     <main>
     
 
@@ -44,11 +44,12 @@ if(isset($_SESSION['user'])){
         echo '削除完了しました。';
         echo '<br>';
         echo '<br>';
-         echo '<form action="my-profile.php" method="POST">';
-                echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
-                echo '</form>';
+        echo '<form action="my-profile.php" method="POST">';
+        echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
+        echo '</form>';
     
     }else{
+        echo 'テーマが見つかりません。';
 
     }
 }else {

@@ -37,14 +37,21 @@
 }
 
 </style>  
+<div class="header">
 
-<header>
-    <a href="top.php"><img src="img/AGB.png" class="logo"></a>
-    <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
-    <form action="logout.php" method="post">
-    <a class="nes-btn" id="logout" href="login-input.php">ログアウト</a>
-    </form>
-</header>
+    </div>
+    <?php require 'header.php'; ?>
+    <!-- <header>
+        <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
+        <form method="get" id="form" action="自分のサイトURL">
+            <div class="nes-field">
+                <label for="search_field"></label>
+                <input type="text" id="search_field" class="nes-input" placeholder="キーワードを入力">
+            </div>
+        </form>
+        <a class="nes-btn"  id="prof" href="my-profile.php">プロフィール</a>
+        <a class="nes-btn" id="logout" href="logout.php">ログアウト</a>
+    </header> -->
     <main>
     
   
@@ -59,17 +66,21 @@
     echo '<form action="favorite-delete-output.php" method="POST">';
 
     $pdo=new PDO($connect, USER, PASS);
-             $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
-                                  LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-             $sql2->execute(array($_SESSION['user']['user_id']));
-            foreach($sql2 as $row2){
-                   
-                    echo '<div class="flex_item">';
-                    echo '<div class="checkbox">';
-                    echo '<label><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
-                    echo '<input type="checkbox" name="theme_id[]" value="',$row2['theme_id'],'"><span>', $row2['theme_name'],'</span>';
-                    echo '</label></div></div>';
+      if($sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
+                              LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ')){
+              $sql2->execute(array($_SESSION['user']['user_id']));
+              foreach($sql2 as $row2){
+                    
+                      echo '<div class="flex_item">';
+                      echo '<div class="checkbox">';
+                      echo '<label><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+                      echo '<input type="checkbox" name="theme_id[]" value="',$row2['theme_id'],'"><span>', $row2['theme_name'],'</span>';
+                      echo '</label></div></div>';
                    }
+      }else{
+        echo '登録されているテーマが見つかりません。';
+
+      }
 
 ?>
 </div>
