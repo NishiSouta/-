@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // テーマの画像ファイル名をデータベースから取得
         $sql_theme = "SELECT theme_jpg FROM Theme WHERE theme_id = :theme_id";
         $stmt_theme = $pdo->prepare($sql_theme);
-        $stmt_theme->bindParam(':theme_id', $theme_id);
+        $stmt_theme->bindParam(':theme', $theme_id);
         $stmt_theme->execute();
         $theme_row = $stmt_theme->fetch(PDO::FETCH_ASSOC);
         $theme_image = $theme_row['theme_jpg'];
@@ -39,7 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':password', $hashed_password);
             $stmt->bindParam(':user_icon', $user_icon_path); // ファイルパスを保存
             $stmt->execute();
-
+            if (isset($_POST['theme']) ) {
+                $pdo=new PDO($connect, USER, PASS);
+                $theme_id = $_POST['theme_id'];
+                foreach($theme_id as $theme){
+                    $sql=$pdo->prepare('insert into Favorite(`theme_id`, `user_id`) value(?,?)');
+                    $sql->execute([(int)$theme,$_SESSION['user']['user_id']]);
+                 
+                }
+            }else{
+    
+            }
             // データが挿入された後にHTMLを表示
             ?>
             <!DOCTYPE html>
