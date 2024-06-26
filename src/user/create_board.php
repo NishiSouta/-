@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: detail.php?theme_id=' . $theme_id);
             exit;
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            echo 'エラー: ' . $e->getMessage();
         }
     } else {
         echo '必要なデータが不足しています。';
