@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <title>掲示板テーマ登録画面</title>
+    <title>掲示板テーマ削除画面</title>
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
