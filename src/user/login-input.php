@@ -7,6 +7,9 @@
     const PASS ='pass1109';
  
     $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
+ 
+    $error_message = $_SESSION['error_message'] ?? '';
+    unset($_SESSION['error_message']);
 ?>
  
 <!DOCTYPE html>
@@ -17,13 +20,20 @@
     <link rel="stylesheet" type="text/css" href="./css/login.css">
     <link rel="stylesheet" type="text/css" href="./css/login2.css">
     <title>ログイン画面</title>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- 左上にアイコン画像を追加 -->
     <img id="agb-icon" src="./img/AGB.png" alt="AGB Icon">
     <div class="login">
         <h1>ログイン</h1>
-        </div>
+    </div>
     <form action="login-output.php" method="post">
         <div class="form">
             <label class="mail">
@@ -41,12 +51,13 @@
             <input type="submit" name="regist" value="Login">
             
             <div class="sinki">
-        <a href="./sinki_nyuuryoku.php">新規登録はこちら</a>
-        </div>
+                <a href="./sinki_nyuuryoku.php">新規登録はこちら</a>
+            </div>
         
-    <?php if (!empty($error_message)) { ?>
-        <div class="error-message"><?php echo $error_message; ?></div>
-    <?php } ?>
+            <?php if (!empty($error_message)) { ?>
+                <div class="error-message"><?php echo htmlspecialchars($error_message, ENT_QUOTES, 'UTF-8'); ?></div>
+            <?php } ?>
+        </div>
     </form>
 </body>
 </html>

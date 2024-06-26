@@ -1,5 +1,5 @@
 <?php
-session_start(); // セッションの開始は一度だけ行う
+session_start(); // セッションの開始
 
 // データベース接続設定
 const SERVER = 'mysql304.phy.lolipop.lan';
@@ -26,8 +26,6 @@ try {
         // ユーザーデータの取得
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
-
-        
         // ユーザーデータが見つかった場合、セッションに保存し、ユーザートップページにリダイレクト
         if ($user) {
             $_SESSION['user'] = [
@@ -39,12 +37,15 @@ try {
             exit;
         } else {
             // ログイン失敗時の処理
-            $error_message = 'メールアドレスまたはパスワードが正しくありません。';
+            $_SESSION['error_message'] = 'メールアドレスまたはパスワードが正しくありません。';
+            header('Location: login-input.php');
+            exit;
         }
     }
 } catch (PDOException $e) {
     // エラー発生時の処理
-    echo 'データベースエラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
+    $_SESSION['error_message'] = 'データベースエラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
+    header('Location: login.php');
     exit;
 }
 ?>
