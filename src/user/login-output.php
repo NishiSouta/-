@@ -8,8 +8,8 @@ const USER = 'LAA1516804';
 const PASS = 'pass1109';
 $connect = 'mysql:host=' . SERVER . ';dbname=' . DBNAME . ';charset=utf8';
 
-// try {
-//     // PDOインスタンスの作成
+try {
+ // PDOインスタンスの作成
 $pdo = new PDO($connect, USER, PASS);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -50,6 +50,11 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 echo $error_message;
             }
         }
+    } catch (PDOException $e) {
+        // エラー発生時の処理
+        echo 'データベースエラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
+        exit;
+    }
             
         //     if(password_verify($_POST['password'],$row['user_pw'])){
         //         // ユーザーデータの取得
@@ -75,9 +80,5 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // }
         
     //}
-// } catch (PDOException $e) {
-//     // エラー発生時の処理
-//     echo 'データベースエラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
-//     exit;
-// }
+
 ?>
