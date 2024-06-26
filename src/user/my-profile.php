@@ -39,7 +39,7 @@
     }
     function deleteAccount() {
         // アカウント削除ページへの遷移
-            window.location.href = 'accountdelete.php';
+            window.location.href = 'delete-confilm.php';
     }
 
     function insertFavorite() {
