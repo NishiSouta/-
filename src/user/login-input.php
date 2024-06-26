@@ -1,17 +1,17 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!-- データベース接続 -->
 <?php
-    const SERVER ='mysql304.phy.lolipop.lan';
-    const DBNAME ='LAA1516804-budou';
-    const USER ='LAA1516804';
-    const PASS ='pass1109';
- 
-    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
- 
-    $error_message = $_SESSION['error_message'] ?? '';
-    unset($_SESSION['error_message']);
+const SERVER = 'mysql304.phy.lolipop.lan';
+const DBNAME = 'LAA1516804-budou';
+const USER = 'LAA1516804';
+const PASS = 'pass1109';
+
+$connect = 'mysql:host=' . SERVER . ';dbname=' . DBNAME . ';charset=utf8';
+
+$error_message = $_SESSION['error_message'] ?? '';
+unset($_SESSION['error_message']);
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -23,7 +23,7 @@
     <style>
         .error-message {
             color: red;
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: bold;
         }
     </style>
