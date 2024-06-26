@@ -11,6 +11,7 @@
     <title>アカウント一覧画面</title> 
 </head>
 <main>
+<<<<<<< Updated upstream
 <style>
     body{
         background-image: url('img/gamen.png');
@@ -57,6 +58,31 @@
                 echo '</table>';
                     
 
+=======
+<h1>アカウント一覧</h1>
+    <body>
+    
+        <?php
+        echo '<form action="account-delete-input.php" method="POST">';
+
+        $pdo=new PDO($connect, USER, PASS);
+                $sql=$pdo->query('SELECT * FROM `User` ');
+
+                echo '<table cellpadding="10">';
+                echo '<tr><th><th>名前</th><th></th><th>メールアドレス</th><th></th><th>パスワード</th><tr>';
+                foreach($sql as $row){
+                
+                    echo '<tr>';
+                        echo '<td class="td"><input type="radio" name="user_id" value="',$row['user_id'],'"></td>';
+                        echo '<td class="td">',$row['user_name'],'</td><td></td>';
+                        echo '<td class="td">',$row['user_mail'],'</td><td></td>';
+                        echo '<td class="td">',$row['user_pw'],'</td>';
+                       
+                    }
+                echo '</table>';
+                    
+
+>>>>>>> Stashed changes
     ?>
     <br>
     <div style="display:inline-flex">

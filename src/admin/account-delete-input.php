@@ -7,6 +7,7 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="css/admin.css" />
     
         <h1 class="h1">アカウント一覧</h1>
@@ -34,6 +35,12 @@
 
     }
     </style>
+=======
+    <link rel="stylesheet" href="css/admin2.css" />
+    
+        <h1 class="h1">アカウント一覧</h1>
+        <body>
+>>>>>>> Stashed changes
       
             
         <?php
