@@ -32,12 +32,12 @@ $connect = 'mysql:host=' . SERVER . ';dbname=' . DBNAME . ';charset=utf8';
             // var_dump($row['user_pw']);
             // var_dump($_POST['password']);
         
-            if(password_verify($_POST['password'],$row['user_pw'])){
+            
                 // ユーザーデータの取得
                 $user = $sql->fetch(PDO::FETCH_ASSOC);
             
         // ユーザーデータが見つかった場合、セッションに保存し、ユーザートップページにリダイレクト
-                if ($user) {
+                if ($user && password_verify($_POST['password'],$row['user_pw'])) {
                     $_SESSION['user'] = [
                         'user_id' => $user['user_id'],
                         'user_name' => $user['user_name']
