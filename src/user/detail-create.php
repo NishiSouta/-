@@ -1,7 +1,7 @@
 <aside>
     <div class="board-form nes-container is-rounded">
         <h2>掲示板作成</h2>
-        <form method="post" action="create_board.php?theme_id=<?= htmlspecialchars($_GET['theme_id'] ?? '') ?>">
+        <form method="post" action="create_board.php?theme_id=<?= htmlspecialchars($theme_id) ?>">
             <div class="nes-field">
                 <label for="title">募集タイトル</label>
                 <input type="text" id="title" name="title" class="nes-input" required>

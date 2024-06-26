@@ -19,36 +19,29 @@ session_start();
         <h3>お気に入り</h3>
         <div class="flex_box">
             <?php
-    $pdo=new PDO($connect, USER, PASS);
-             $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
-                                  LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-             $sql2->execute(array($_SESSION['user']['user_id']));
-            foreach($sql2 as $row2){
-                   
-                    echo '<div class="flex_item">';
-                    echo '<a href="detail.php?id=',$row2['theme_id'],'"><span>';
-                    echo '<label><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">', $row2['theme_name'],'</span>';
-                    echo '</label></div></a>';
-                   }
-
-?>
+            $pdo = new PDO($connect, USER, PASS);
+            $sql = $pdo->prepare('SELECT DISTINCT Theme.theme_jpg, Theme.theme_name, Theme.theme_id FROM Favorite
+                                  LEFT JOIN Theme ON Favorite.theme_id = Theme.theme_id WHERE user_id = ?');
+            $sql->execute(array($_SESSION['user']['user_id']));
+            foreach ($sql as $row) {
+                echo '<div class="flex_item">';
+                echo '<a href="detail.php?theme_id=' . $row['theme_id'] . '"><span>';
+                echo '<label><img src="img/' . $row['theme_jpg'] . '.jpg" class="img_game" alt="写真">' . $row['theme_name'] . '</span>';
+                echo '</label></div></a>';
+            }
+            ?>
         </div>
         <h3>テーマ</h3>
         <div class="flex_box">
             <?php
-                $pdo=new PDO($connect,USER,PASS);
-                $sql=$pdo->query('select * from Theme');
-                $cnt = 0;
-                foreach($sql as $row){
-                    if( $cnt>1000 ){
-                        break;
-                    }
-                    echo '<a href="detail.php?id=',$row['theme_id'],'"><div class="flex_item">',
-                            '<img src="img/',$row['theme_jpg'],'.jpg" class="img_game" alt="写真">',
-                            '<div class="game_title">',$row['theme_name'],"</div>",
-                        '</div></a>';
-                    $cnt++;
-                }
+            $pdo = new PDO($connect, USER, PASS);
+            $sql = $pdo->query('SELECT * FROM Theme');
+            foreach ($sql as $row) {
+                echo '<a href="detail.php?theme_id=' . $row['theme_id'] . '"><div class="flex_item">',
+                     '<img src="img/' . $row['theme_jpg'] . '.jpg" class="img_game" alt="写真">',
+                     '<div class="game_title">' . $row['theme_name'] . "</div>",
+                     '</div></a>';
+            }
             ?>
         </div>
     </main>

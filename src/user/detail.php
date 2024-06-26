@@ -1,17 +1,11 @@
 <?php
 session_start();
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-require 'db-connect.php';
-
-if (isset($_SESSION['user']['user_id'])) {
-    $user_id = $_SESSION['user']['user_id'];
-} else {
+if (!isset($_SESSION['user']['user_id'])) {
     header('Location: login.php');
     exit;
 }
+
+require 'db-connect.php';
 
 $theme_id = isset($_GET['theme_id']) ? intval($_GET['theme_id']) : 1; // デフォルトのテーマIDを設定
 
@@ -24,7 +18,7 @@ try {
     $stmt->execute();
     $boards = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
+    echo 'エラー: ' . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
@@ -35,8 +29,8 @@ try {
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <title>掲示板一覧</title>
     <link rel="stylesheet" href="css/detail.css">
+    <title>掲示板一覧</title>
 </head>
 <body>
 <?php require 'header.php'; ?>
