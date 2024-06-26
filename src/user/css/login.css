@@ -45,3 +45,8 @@ input[name="regist"] {
     top: 650px;
     left: 890px;
 }
+.error-message{
+    position: absolute;
+    top: 330px;
+    left: 750px;
+}
