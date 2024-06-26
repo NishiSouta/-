@@ -22,7 +22,8 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
        
         // SQL文の準備と実行
-        $sql = $pdo->prepare("SELECT * FROM User WHERE user_mail = ?");
+        // $sql = $pdo->prepare("SELECT * FROM User WHERE user_mail = ? AND user_pw = ?");
+        $sql = $pdo->prepare("SELECT * FROM User WHERE user_mail = ? ");
         $sql->execute([$mail]);
        
          // passwordハッシュ化判定
@@ -49,6 +50,10 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 echo $error_message;
             }
         }
+    } catch (PDOException $e) {
+        // エラー発生時の処理
+        echo 'データベースエラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
+        exit;
     }
  
  
