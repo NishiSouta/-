@@ -20,7 +20,7 @@ session_start();
         <div class="flex_box">
             <?php
             $pdo = new PDO($connect, USER, PASS);
-            $sql = $pdo->prepare('SELECT DISTINCT Theme.theme_jpg, Theme.theme_name, Theme.theme_id FROM Favorite 
+            $sql = $pdo->prepare('SELECT DISTINCT Theme.theme_jpg, Theme.theme_name, Theme.theme_id FROM Favorite
                                   LEFT JOIN Theme ON Favorite.theme_id = Theme.theme_id WHERE user_id = ?');
             $sql->execute(array($_SESSION['user']['user_id']));
             foreach ($sql as $row) {
