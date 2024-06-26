@@ -10,6 +10,7 @@
     <title>新規登録入力画面</title>
 </head>
 <body>
+    
     <div id="center">
         <h2>新規登録</h2>
     </div>

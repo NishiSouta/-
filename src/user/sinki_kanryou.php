@@ -10,6 +10,7 @@
     <title>新規登録完了画面</title>
 </head>
 <body>
+    
     <div id="center">
         <div id="a">
             <h2>新規登録完了</h2>

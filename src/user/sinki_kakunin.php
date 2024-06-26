@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div id="center">
                     <h2>確認画面</h2>
                 </div>
+                
                 <div id="center">
                     <p><img src="<?= $user_icon_path ?>" alt="ユーザープロフィール画像" class="rounded-icon"></p>
                     <p><h2>名前: <?= htmlspecialchars($name) ?></h2></p>
