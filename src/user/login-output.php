@@ -1,5 +1,5 @@
 <?php
-session_start(); // セッションの開始は一度だけ行う
+session_start(); // セッションの開始
 
 // データベース接続設定
 const SERVER = 'mysql304.phy.lolipop.lan';
@@ -10,14 +10,15 @@ $connect = 'mysql:host=' . SERVER . ';dbname=' . DBNAME . ';charset=utf8';
 
 // try {
 //     // PDOインスタンスの作成
-    $pdo = new PDO($connect, USER, PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$pdo = new PDO($connect, USER, PASS);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // フォームが送信されたか確認
     // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //     // POSTデータの取得
-        $mail = $_POST['mail'];
-        $password = $_POST['password'];
+    $mail = $_POST['mail'];
+    $password = $_POST['password'];
+    
 
        
         // SQL文の準備と実行
@@ -31,29 +32,47 @@ $connect = 'mysql:host=' . SERVER . ';dbname=' . DBNAME . ';charset=utf8';
             // var_dump(password_verify($_POST['password'],$row['user_pw']));
             // var_dump($row['user_pw']);
             // var_dump($_POST['password']);
-        
+            // $user = $sql->fetch(PDO::FETCH_ASSOC); // Fetch the first row
+
+            if(password_verify($_POST['password'],$row['user_pw'])){
+             
+                $_SESSION['user']=[
+
+                    'user_id'=>$row['user_id'], 'name'=>$row['user_name'],
             
-                // ユーザーデータの取得
-                $user = $sql->fetch(PDO::FETCH_ASSOC);
+                    'mail'=>$row['user_mail'], 'icon'=>$row['user_icon'], 
             
-        // ユーザーデータが見つかった場合、セッションに保存し、ユーザートップページにリダイレクト
-                if ($user && password_verify($_POST['password'],$row['user_pw'])) {
-                    $_SESSION['user'] = [
-                        'user_id' => $user['user_id'],
-                        'user_name' => $user['user_name']
-                        // パスワードをセッションに保存することは推奨されません。
-                    ];
-                    header('Location: top.php');
-                    exit;
-                } else {
-                    // ログイン失敗時の処理
-                    $error_message = 'メールアドレスまたはパスワードが正しくありません。';
-                    echo 'a';
-                }
-            }else{
-                echo 'i';
+                    'password'=>$row['user_pw']];
+                header('Location: top.php');
+                exit;
+            } else {
+                $error_message = 'メールアドレスまたはパスワードが正しくありません。';
+                echo $error_message;
             }
         }
+            
+        //     if(password_verify($_POST['password'],$row['user_pw'])){
+        //         // ユーザーデータの取得
+        //         $user = $sql->fetch(PDO::FETCH_ASSOC);
+            
+        // // ユーザーデータが見つかった場合、セッションに保存し、ユーザートップページにリダイレクト
+        //         if ($user) {
+        //             $_SESSION['user'] = [
+        //                 'user_id' => $user['user_id'],
+        //                 'user_name' => $user['user_name']
+        //                 // パスワードをセッションに保存することは推奨されません。
+        //             ];
+        //             header('Location: top.php');
+        //             exit;
+        //         } else {
+        //             // ログイン失敗時の処理
+        //             $error_message = 'メールアドレスまたはパスワードが正しくありません。';
+        //             echo 'a';
+        //         }
+        //     }else{
+        //         echo 'i';
+        //     }
+        // }
         
     //}
 // } catch (PDOException $e) {
