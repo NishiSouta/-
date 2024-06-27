@@ -19,11 +19,23 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
         $user_id = intval($_POST['user_id']);
 
+        // トランザクション開始
+        $pdo->beginTransaction();
+
+        // 関連データの削除
+        $sql = 'DELETE FROM Favorite WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+
         // ユーザーの削除
         $sql = 'DELETE FROM User WHERE user_id = :user_id';
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
+
+        // コミット
+        $pdo->commit();
 
         // セッションの破棄
         session_destroy();
@@ -33,6 +45,10 @@ try {
         exit;
     }
 } catch (PDOException $e) {
+    // エラーハンドリング
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
     echo 'データベースエラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
     exit;
 }
