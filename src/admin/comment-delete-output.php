@@ -12,10 +12,10 @@
    
     <?php
 
-    if (isset($_POST['user_id']) ) {
+    if (isset($_POST['chat_id']) ) {
         $pdo=new PDO($connect, USER, PASS);
-        $sql=$pdo->prepare('delete from User where user_id=?');
-            $sql->execute([(int)$_POST['user_id']]);
+        $sql=$pdo->prepare('delete from Chat where chat_id=?');
+            $sql->execute([(int)$_POST['chat_id']]);
 
             echo '削除完了しました。';
             echo '<br>';
@@ -24,7 +24,7 @@
             echo '<input type="submit" value="topへ戻る">';
             echo '</form>';
     }else{
-        echo '<p>ユーザーが見つかりませんでした。</p>';
+        echo '<p>コメント削除に失敗しました。</p>';
 
     }
         

@@ -40,20 +40,21 @@
       
             
         <?php
-         if (isset($_POST['user_id']) ) {
-            echo '<a><font color="red">こちらのアカウントを削除してもよろしいですか</font></a>';
+         if (isset($_POST['chat_id']) ) {
+            echo '<a><font color="red">こちらのコメントを削除してもよろしいですか</font></a>';
             echo '<div class="delete">';
-            echo '<form action="account-delete-output.php" method="POST">';
-            $user = $_POST['user_id'];
+            echo '<form action="comment-delete-output.php" method="POST">';
+            $chat_id = $_POST['chat_id'];
             $pdo=new PDO($connect, USER, PASS);
-                $sql=$pdo->prepare('SELECT * FROM `User` WHERE user_id = ? ');
-                $sql->execute(array($user));
+                $sql=$pdo->prepare('SELECT * FROM `Chat` 
+                                    LEFT JOIN  User ON User.user_id = Chat.user_id WHERE chat_id = ?  ');
+                $sql->execute(array($chat_id));
                 
                 foreach($sql as $row){
                 echo '名前：',$row['user_name'],'<br>';
-                echo 'メールアドレス：',$row['user_mail'],'<br>';
-                echo 'パスワード：',$row['user_pw'];
-                echo '<input type="hidden" name="user_id" value="',$user,'" />';
+                echo 'コメント：',$row['chat_content'],'<br>';
+                echo '投稿日時：',$row['chat_postdate'];
+                echo '<input type="hidden" name="chat_id" value="',$chat_id,'" />';
                     
             
                 }
@@ -62,16 +63,16 @@
                 echo '<div style="display:inline-flex">';
                 echo '<input type="submit" class="nes-btn"  id="insert" value="削除">';
                 echo '</form>';
-                echo '<form action="account-itiran.php" method="POST">';
+                echo '<form action="comment-itiran.php" method="POST">';
                 echo '<input type="submit" class="nes-btn"  id="insert" value="戻る">';
                 echo '<br>';
                 echo '</div>';
         }else{
-            echo '<p>ユーザーが見つかりませんでした。</p>';
+            echo '<p>コメントが見つかりませんでした。</p>';
             echo '</div>';
             echo '<br>';
             echo '<div style="display:inline-flex">';
-            echo '<form action="account-itiran.php" method="POST">';
+            echo '<form action="comment-itiran.php" method="POST">';
             echo '<input type="submit" class="nes-btn"  id="insert" value="戻る">';
             echo '<br>';
             echo '</div>';
