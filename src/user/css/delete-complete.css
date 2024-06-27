@@ -1,4 +1,12 @@
+@font-face {
+    font-family:'misakigothic';
+    src: url('misaki_gothic.eot');
+    src: url('misaki_gothic.woff') format('woff'),
+    url('misaki_gothic.ttf') format('truetype');
+}
+
 body {
+    font-family: 'misakigothic';  /* フォント設定 */
     background-image: url('../img/accountdelete.png');
     background-size: cover;
     background-position: center;

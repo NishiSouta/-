@@ -27,34 +27,35 @@
         /* 背景画像が読み込まれる前に表示される背景のカラー */
         background-color: #464646;
 
-        margin: 0px;
-    color: #212529;
-    padding: 50px;
-    padding-left: 370px;
+        margin: 70px;
+        color: #212529;
+        padding: 50px;
+        padding-left: 450px;
 
     }
     .nes-btn{
-    margin-right:680px;
+    margin-right:450px;
     }
 </style>
-<h1>アカウント一覧</h1>
+<h1>コメント一覧</h1>
     <body>
     
         <?php
-        echo '<form action="account-delete-input.php" method="POST">';
+        echo '<form action="comment-delete-input.php" method="POST">';
 
         $pdo=new PDO($connect, USER, PASS);
-                $sql=$pdo->query('SELECT * FROM `User` ');
+                $sql=$pdo->query('SELECT * FROM `Chat` LEFT JOIN  User ON User.user_id = Chat.user_id ');
 
                 echo '<table cellpadding="10">';
-                echo '<tr><th><th>名前</th><th></th><th>メールアドレス</th><th></th><th>パスワード</th><tr>';
+                echo '<tr><th></th><th>名前</th><th></th><th>投稿内容</th><th></th><th>投稿日時</th><th></th><tr>';
                 foreach($sql as $row){
                 
                     echo '<tr>';
-                        echo '<td class="td"><input type="radio" name="user_id" value="',$row['user_id'],'"></td>';
+                        echo '<td class="td"><input type="radio" name="chat_id" value="',$row['chat_id'],'"></td>';
                         echo '<td class="td">',$row['user_name'],'</td><td></td>';
-                        echo '<td class="td">',$row['user_mail'],'</td><td></td>';
-                        echo '<td class="td">',$row['user_pw'],'</td>';
+                        echo '<td class="td">',$row['chat_content'],'</td><td></td>';
+                        echo '<td class="td">',$row['chat_postdate'],'</td><td></td>';
+                        // echo '<td class="td">',$row['user_pw'],'</td>';
                        
                     }
                 echo '</table>';
