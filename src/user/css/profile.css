@@ -112,14 +112,14 @@ nav a {
 /* 名前のスタイル設定 */
 .name {
     margin: 20px 0; /* 上下に20pxの余白を設定 */
-    font-size: 24px; /* フォントサイズ */
+    font-size: 55px; /* フォントサイズ */
 }
  
 /* ボタンのスタイル設定 */
 .actions button {
     margin: 10px; /* 四方に10pxの余白を設定 */
     padding: 10px 20px; /* パディングを設定 */
-    font-size: 14px; /* フォントサイズ */
+    font-size: 30px; /* フォントサイズ */
     border: none; /* 枠線なし */
     border-radius: 5px; /* 角を丸くする */
     cursor: pointer; /* カーソルをポインタに設定 */
