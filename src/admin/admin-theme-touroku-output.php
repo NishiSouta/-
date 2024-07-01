@@ -10,51 +10,27 @@
 <?php
 require 'db-connect.php';
 
-$conn = new PDO($connect, USER, PASS);
+$pdo = new PDO($connect, USER, PASS);
+$name = htmlspecialchars($_POST['name']);
 
-$name = $_POST['name'];
-$description = $_FILES['img']['name'];  // $_POST['img']ではなく$_FILES['img']['name']を使用
+$user_icon = $_FILES['img']['name'];
+    $user_icon_tmp = $_FILES['img']['tmp_name'];
+    $upload_directory = "";
+$user_icon = pathinfo($user_icon, PATHINFO_FILENAME);
 
-// 画像アップロード処理
-//$target_dir = "img/";
-$target_file = /*$target_dir .*/ basename($_FILES["img"]["name"]);
-$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-// 画像ファイルのバリデーション
-$check = getimagesize($_FILES["img"]["tmp_name"]);
-if ($check === false) {
-    die("ファイルは画像ではありません。");
-}
 
-// ファイルサイズの制限 (例: 5MB以下)
-if ($_FILES["img"]["size"] > 5000000) {
-    die("画像ファイルが大きすぎます。");
-}
+    // ファイルを指定のディレクトリに移動する
+    move_uploaded_file("..//..img");
 
-// 画像ファイル形式の制限
-$allowed_types = ["jpg", "jpeg", "png", "gif"];
-if (!in_array($imageFileType, $allowed_types)) {
-    die("許可されていないファイル形式です。");
-}
+    $user_icon_path = $upload_directory . $user_icon;
+    try {
 
-// アップロードディレクトリの存在確認と作成
-/*if (!is_dir($target_dir)) {
-    mkdir($target_dir, 0777, true);
-}*/
-
-// 画像ファイルのアップロード
-if (!move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-    die("画像のアップロード中にエラーが発生しました。");
-}
-
-try {
-    // テーマを追加するためのSQLクエリ
-    $sql = "INSERT INTO Theme (theme_name, theme_jpg) VALUES (:name, :img)";
-    $stmt = $conn->prepare($sql);
-
-    // パラメータのバインド
+    $sql = 'INSERT INTO Theme (theme_name, theme_jpg) VALUES (:name,:img)';
+    $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':img', $target_file);
+    $stmt->bindParam(':img', $user_icon_path);
+    $stmt->execute();
 
     // クエリの実行
     if ($stmt->execute()) {
@@ -69,7 +45,7 @@ try {
 
 // ステートメントと接続を閉じる
 unset($stmt);
-unset($conn);
+unset($pdo);
 ?>
 </body>
 </html>
