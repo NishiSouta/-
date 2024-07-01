@@ -77,7 +77,7 @@
     <br>
     <br>
     <div style="display:inline-flex">
-        <form action="#.php" method="POST">
+        <form action="admin-theme-touroku-input.php" method="POST">
         <input type="submit" class="nes-btn2"  id="insert" value="登録">
         </form>
         <form action="admin-top.php" method="POST">        
