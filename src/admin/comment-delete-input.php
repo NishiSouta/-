@@ -9,7 +9,7 @@
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/admin.css" />
     
-        <h1 class="h1">アカウント一覧</h1>
+        <h1 class="h1">コメント一覧</h1>
         <body>
         <style>
         body{
