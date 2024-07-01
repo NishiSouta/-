@@ -30,7 +30,7 @@
             $sql=$pdo->prepare('select * from User where user_id = ? ');
             $sql->execute([$_SESSION['user']['user_id']]);
             foreach($sql as $row){
-                echo '<img alt="image" src="img/', $row['user_icon'], '.jpg" class="img_game1">';
+                echo '<img alt="image" src="', $row['user_icon'],  '" class="img_game1">';
                 echo '<br><br><span class="name">',$row['user_name'],'</span>';
             }
 
@@ -50,7 +50,7 @@
 
     ?>
     </div>
-    <form action="#" method="POST">
+    <form action="" method="POST">
         <br>
         <input type="submit" class="nes-btn"  id="insert" value="戻る">
     </form>
