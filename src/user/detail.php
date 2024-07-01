@@ -12,7 +12,7 @@ $theme_id = isset($_GET['theme_id']) ? intval($_GET['theme_id']) : 1; // デフ�
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = 'SELECT board_name, board_content FROM Board WHERE theme_id = :theme_id';
+    $sql = 'SELECT board_id, board_name, board_content FROM Board WHERE theme_id = :theme_id';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':theme_id', $theme_id, PDO::PARAM_INT);
     $stmt->execute();
@@ -38,10 +38,10 @@ try {
     <main>
         <div class="board-list">
             <?php foreach ($boards as $board): ?>
-                <div class="board-item nes-container is-rounded">
+                <a href="chat.php?board_id=<?= htmlspecialchars($board['board_id']) ?>" class="board-item nes-container is-rounded">
                     <h2 class="board-title"><?= htmlspecialchars($board['board_name'] ?? '') ?></h2>
                     <p class="board-content"><?= nl2br(htmlspecialchars($board['board_content'] ?? '')) ?></p>
-                </div>
+                </a>
             <?php endforeach; ?>
         </div>
     </main>

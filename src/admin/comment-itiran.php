@@ -29,7 +29,7 @@
 
         margin: 70px;
         color: #212529;
-        padding: 50px;
+        padding: 90px;
         padding-left: 450px;
 
     }
@@ -51,8 +51,8 @@
                 foreach($sql as $row){
                 
                     echo '<tr>';
-                        echo '<td class="td"><input type="radio" name="chat_id" value="',$row['chat_id'],'"></td>';
-                        echo '<td class="td">',$row['user_name'],'</td><td></td>';
+                        echo '<td class="td_name"><input type="radio" name="chat_id" value="',$row['chat_id'],'"></td>';
+                        echo '<td class="td_name">',$row['user_name'],'</td><td></td>';
                         echo '<td class="td">',$row['chat_content'],'</td><td></td>';
                         echo '<td class="td">',$row['chat_postdate'],'</td><td></td>';
                         // echo '<td class="td">',$row['user_pw'],'</td>';

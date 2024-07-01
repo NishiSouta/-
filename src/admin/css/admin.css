@@ -8,12 +8,19 @@
 
 .td{
     background-color: #D9D9D9;
+    width: 300px; 
+}
+
+.td_name{
+    background-color: #D9D9D9;
+    width: 60px;
+    
 }
 
 .delete{
    
     background-color: white;
-    width: 550px;
+    width: 750px;
     height: 100px;
 }
 .h1{
