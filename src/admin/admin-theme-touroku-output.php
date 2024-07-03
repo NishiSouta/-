@@ -21,7 +21,7 @@ $user_icon = pathinfo($user_icon, PATHINFO_FILENAME);
 
 
     // ファイルを指定のディレクトリに移動する
-    move_uploaded_file("..//..img");
+    move_uploaded_file(':img',"../img/");
 
     $user_icon_path = $upload_directory . $user_icon;
     try {
