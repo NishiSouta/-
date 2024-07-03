@@ -43,7 +43,7 @@
                         foreach($sql2 as $row2){
                                          
                             echo '<div class="flex_item">';
-                            echo '<a href="detail.php?id=', $row2['theme_id'], '"><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+                            echo '<a href="detail.php?theme_id=' . $row2['theme_id'] . '"><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
                             echo '</div>';
                         }
 

@@ -159,6 +159,8 @@ input[type="checkbox"]#theme_checkbox:checked + label{
  */
 
  .nes-btn2{
+    height: 50px;
+    width: 70px;;
     margin-left: 50px;
     margin-bottom: 20px;
 }
