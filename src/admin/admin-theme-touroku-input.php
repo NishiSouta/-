@@ -8,11 +8,18 @@
 </head>
 <body>
     <form action="admin-theme-touroku-output.php" method="post" enctype="multipart/form-data">
-    <div id="file-button"><input type="file" id="img" name="img" accept="image/*"  onchange="previewUserIcon(event)" requiredtry></div><br><br>
+    <div id="file-button"><input type="file" id="img" name="img" accept="../img/*"  onchange="previewUserIcon(event)" requiredtry></div><br><br>
     <div id="theme-button"> <label for="name">テーマ名:</label>
         <textarea id="name" name="name" required></textarea></div><br><br>
-        <div id="touroku-button"><input type="submit" value="登録"></div>
-        <div id="modoru-button"> <a href="admin-top.php">戻る</a></div>
-    </form>
+
+
+
+        <div style="display:inline-flex">
+        <input type="submit" class="nes-btn2"  id="insert" value="登録">
+        </form>
+        <form action="admin-top.php" method="POST">        
+        <input type="submit" class="nes-btn2"  id="insert" value="戻る">
+        <br>
+    </div>   
 </body>
 </html>
