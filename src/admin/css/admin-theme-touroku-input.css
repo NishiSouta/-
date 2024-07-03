@@ -1,6 +1,6 @@
 body{
     background-image: url('../img/gamen.png');
-    background-size: 100% 450%;
+    background-size: 100% 900%;
     background-repeat: no-repeat;
 }
 p {
@@ -94,4 +94,62 @@ input[type="radio"]:checked + label img {
     position: absolute;
     top: 220px;
     left: 1550px;   
+}@font-face {
+    font-family:'misakigothic';
+    src: url('misaki_gothic.eot');
+    src: url('misaki_gothic.woff') format('woff'),
+    url('misaki_gothic.ttf') format('truetype');
+}
+
+
+.td{
+    background-color: #D9D9D9;
+    width: 300px; 
+}
+
+.td_name{
+    background-color: #D9D9D9;
+    width: 60px;
+    
+}
+
+.delete{
+   
+    background-color: white;
+    width: 750px;
+    height: 100px;
+}
+.h1{
+    color: white;
+}
+
+
+.flex_item{
+    display: flex;	
+    margin-right: 30px;
+    width: 170px;
+    flex-flow: colunm;
+    flex-wrap: wrap;
+    text-align: center;
+    display:inline-block
+    
+
+}
+
+.flex_box{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 100px;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 1200px;
+     margin:  auto;
+}
+
+.img_game{
+    background-position: center;
+    width: 150px;
+    height:150px;
+    border-radius:50%;
+    background-image: url("./img/white.png");
 }
