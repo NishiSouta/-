@@ -28,11 +28,13 @@ p{
     position: absolute;
     top: 500px;
     left: 530px;
+    margin: 170px;
 }
 #right{
     position: absolute;
     top: 500px;
     right: 530px;
+    margin: 170px;
 }
 #center{
     text-align: center;
