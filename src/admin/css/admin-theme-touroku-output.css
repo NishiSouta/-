@@ -1,9 +1,13 @@
-body {
-    background-image: url('../img/sinki.png');
-    background-size: 100% 100%;
+body{
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    /* 画像ファイルの指定 */
+        background-image: url('../img/gamen.png');
+    
     /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
-               
+              
     /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
               
@@ -15,14 +19,4 @@ body {
               
     /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
-    height: 100%;
-    margin: 0;
-}
-
-#center {
-    display: flex; /* flexboxを使用する */
-    flex-direction: column; /* コンテンツを縦方向に配置する */
-    justify-content: center; /* 垂直方向の中央揃え */
-    align-items: center; /* 横方向の中央揃え */
-    height: 100vh; /* ビューポートの高さいっぱいを使用する */
 }

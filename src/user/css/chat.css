@@ -1,9 +1,173 @@
- #chatbox {
-            width: 300px;
-            height: 400px;
-            border: 1px solid #ccc;
-            overflow-y: scroll;
-        }
-        #message {
-            width: 200px;
-        }
+@font-face {
+    font-family:'misakigothic';
+    src: url('misaki_gothic.eot');
+    src: url('misaki_gothic.woff') format('woff'),
+    url('misaki_gothic.ttf') format('truetype');
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+    font-family:'misakigothic';
+    
+    /* 画像ファイルの指定 */
+    background-image: url(../img/chat.png);
+    
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+              
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+              
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+              
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+              
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    background-color: #464646;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    background-color: #F4F4EB;
+}
+
+main{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+
+}
+
+main h3{
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+.radio{
+    margin-left: 70px;
+}
+
+.chat_getarea{
+    position: relative;
+    top: 105px;
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+.chat_sendarea{
+    position: fixed;
+    top: 15%;
+    left: 70%;
+    float: right;
+    width: 30%;
+    height: 100%;
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.chat_btt{
+    position: relative;
+    left: 140px;
+    width: 100px;
+    height: 50px;
+}
+
+.logo{
+    width: 170px;
+    height: 100px;
+}
+
+#form{
+    display: flex;
+    justify-content: center; 	
+    height:50px;
+    display: flex;
+    justify-content: center; 	
+    height:50px;
+    position: fixed;
+    top: 15px;
+    left: 300px;
+}
+
+#prof{
+    position: fixed;
+    top: 20px;
+    left: 900px;
+}
+
+#logout{
+    position: fixed;
+    top: 20px;
+    left: 1050px;
+}
+
+.flex_box{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-left: 100px;
+}
+
+.flex_item{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 150px;
+}
+
+.user_icon{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100px;
+}
+
+.chat_right{
+    display: flex;
+    justify-content: flex-end
+}
+
+.chat_left{
+    display: flex;
+}
+
+.game_title{
+    width: 100%;
+}
+
+.img_icon{
+    background-position: center;
+    width: 80px;
+    height:80px;
+    border-radius:50%;
+}
+
+.img_game{
+    background-position: center;
+    width: 150px;
+    height:150px;
+    border-radius:50%;
+}
+
+.nothing{
+    margin: auto;
+    position: relative;
+    top: 150px;
+    width: 450px
+}
