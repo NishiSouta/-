@@ -1,5 +1,6 @@
 /* CSSで背景画像を設定 */
 body {
+    font-family:'misakigothic';
     background-image: url('../img/bg.png'); /* 画像のパスを正確に指定してください */
     background-size: cover; /* 背景画像を画面にフィットさせる */
     background-position: center; /* 画像を中央に配置 */
