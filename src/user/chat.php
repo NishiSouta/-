@@ -29,14 +29,14 @@
                                     '<p>',$row['chat_content'],'</p>',
                                     '</div>',
                                     '<div class="user_icon">',
-                                    '<img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン">',
+                                    '<a href="my-profile.php"><img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン"></a>',
                                     $row['user_name'],
                                     '</div></div>';
                             }else{
                                 echo
                                     '<div class="chat_left">',
                                     '<div class="user_icon">',
-                                    '<img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン">',
+                                    '<a href="my-profile-user.php?"><img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン"></a>',
                                     $row['user_name'],
                                     '</div>',
                                     '<div class="nes-balloon from-left is-dark">',
@@ -67,6 +67,8 @@
     </main>
     
     <script>
+        let target = document.getElementById('chatbox');
+        target.scrollIntoView(false);
         // チャットメッセージを自動更新する関数
         /*function updateChat() {
             fetch('get_messages.php')
