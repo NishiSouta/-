@@ -1,4 +1,12 @@
+@font-face {
+    font-family:'misakigothic';
+    src: url('misaki_gothic.eot');
+    src: url('misaki_gothic.woff') format('woff'),
+    url('misaki_gothic.ttf') format('truetype');
+}
+
 body {
+    font-family:'misakigothic';
     background-image: url('../img/account.png');
     background-size: 100% 100%;
     /* 画像を常に天地左右の中央に配置 */
