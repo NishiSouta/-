@@ -17,6 +17,7 @@ try {
     $stmt->bindParam(':theme_id', $theme_id, PDO::PARAM_INT);
     $stmt->execute();
     $boards = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $r_boards = array_reverse($boards); //配列の要素の逆順に並び替える
 } catch (PDOException $e) {
     echo 'エラー: ' . $e->getMessage();
 }
@@ -37,7 +38,7 @@ try {
 <div class="container">
     <main>
         <div class="board-list">
-            <?php foreach ($boards as $board): ?>
+            <?php foreach ($r_boards as $board): ?>
                 <a href="chat.php?board_id=<?= htmlspecialchars($board['board_id']) ?>" class="board-item nes-container is-rounded">
                     <h2 class="board-title"><?= htmlspecialchars($board['board_name'] ?? '') ?></h2>
                     <p class="board-content"><?= nl2br(htmlspecialchars($board['board_content'] ?? '')) ?></p>
