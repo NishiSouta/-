@@ -67,7 +67,8 @@ aside {
 
 /* ヘッダーの設定 */
 header {
-    position: sticky;
+    position: fixed; /*** ← fixedで固定 ***/
+    /* position: sticky; */
     top: 0;
     z-index: 999;
     margin: 0 auto;
