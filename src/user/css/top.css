@@ -35,7 +35,8 @@ body{
 }
 
 header{
-    position: sticky;
+    position: fixed; /*** ← fixedで固定 ***/
+    /* position: sticky; */
     top: 0;
     z-index: 999;
     margin: 0 auto;
@@ -48,6 +49,7 @@ main{
     margin: 0 auto;
     width: 100%;
     min-height: 100vh;
+    padding-top: 90px;
    
 }
 
@@ -88,7 +90,7 @@ main h3{
 .flex_box{
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10px;
+    padding-top: 35px;
     padding-left: 100px;
 }
 
