@@ -48,16 +48,16 @@
             </div>
         </div>
         <div class="chat_sendarea">
-            <h3>メッセージ送信</h3>
-            <div class="radio">
-                <p><input type="radio" id="s" name="drone" value="s" checked />初心者</p>
-                <p><input type="radio" id="t" name="drone" value="t"/>中級者</p>
-                <p><input type="radio" id="j" name="drone" value="j"/>上級者</p>
-            </div>
-            <h3>メッセージ</h3>
             <?php
             echo '<form id="messageForm" action="send_message.php?board_id=', $_GET['board_id'],'" method="post">';
             ?>
+            <h3>メッセージ送信</h3>
+            <div class="radio">
+                <p><input type="radio" id="s" name="drone" value="#初心者　"/>初心者</p>
+                <p><input type="radio" id="t" name="drone" value="#中級者　"/>中級者</p>
+                <p><input type="radio" id="j" name="drone" value="#上級者　"/>上級者</p>
+            </div>
+            <h3>メッセージ</h3>
                 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
                     <input type="text" name="message" id="dark_field" class="nes-input is-dark" placeholder="メッセージを入力" required>
                 </div>

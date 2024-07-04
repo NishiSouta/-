@@ -20,15 +20,6 @@ body{
     /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
 }
-.container {
-    text-align: center;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 6000px;
-    width: 100%;
-    position: relative;
-}
 
 .header {
     position: absolute;
@@ -73,9 +64,7 @@ a.btn {
 }
 
 #theme {
-    position: absolute;
-    top: calc(100vh - 170px); /* ページの下部から180px上に配置 */
-    right: 100%; /* 右側から10%の位置に配置 */
-    margin-right: -50%; /* 水平方向の中央寄せ */
-    transform: translateX(50%); /* 水平方向の中央寄せ */
+    position: fixed;
+    top: 410px;
+    left: 925px;
 }
