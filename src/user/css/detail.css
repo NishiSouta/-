@@ -63,17 +63,20 @@ aside {
     flex: 1;
     padding: 20px;
     position: sticky;
+    padding-top: 100px;
 }
 
 /* ヘッダーの設定 */
 header {
-    position: sticky;
+    position: fixed; /*** ← fixedで固定 ***/
+    /* position: sticky; */
     top: 0;
     z-index: 999;
     margin: 0 auto;
     width: 100%;
     height: 100px;
     background-color: #F4F4EB;
+
 }
     
 
@@ -111,6 +114,7 @@ header {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    padding-top: 80px;
 }
 
 .board-item {
