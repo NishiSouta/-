@@ -45,7 +45,8 @@ if(isset($_SESSION['user'])){
         echo '<br>';
         echo '<br>';
         echo '<form action="my-profile.php" method="POST">';
-        echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
+        //echo '<input type="submit" value="プロフィールへ戻る" class="profile">';変更前
+        echo '<input type="button" onclick="location.href=\'my-profile.php\'" value="プロフィールへ戻る" class="profile">';//変更後
         echo '</form>';
     
     }else{
