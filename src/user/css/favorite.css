@@ -132,8 +132,9 @@ margin: 50px;
 .theme_output{
     text-align: center;
     margin-left: 0px;
-    padding-top: 10px;
-    padding-left: 120px;
+    padding-top: 250px;
+    font-size:  35px;
+    padding-left: 122px;
     padding-right: 150px;
 }
 
