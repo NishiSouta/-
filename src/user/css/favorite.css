@@ -160,8 +160,16 @@ input[type="checkbox"]#theme_checkbox:checked + label{
  */
 
  .nes-btn2{
-    height: 50px;
-    width: 70px;;
+    height: 65px;
+    width: 90px;;
     margin-left: 50px;
     margin-bottom: 20px;
+     font-size:  40px;
+}
+.nes-btn3{
+    height: 65px;
+    width: 80px;;
+    margin-left: 800px;
+    margin-bottom: 20px;
+     font-size:  32px;
 }
