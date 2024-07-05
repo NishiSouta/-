@@ -29,14 +29,14 @@
                                     '<p>',$row['chat_content'],'</p>',
                                     '</div>',
                                     '<div class="user_icon">',
-                                    '<a href="my-profile.php"><img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン"></a>',
+                                    '<a href="my-profile.php"><img src="img/',$row['user_icon'],'" class="img_icon" alt="アイコン"></a>',
                                     $row['user_name'],
                                     '</div></div>';
                             }else{
                                 echo
                                     '<div class="chat_left">',
                                     '<div class="user_icon">',
-                                    '<a href="my-profile-user.php?"><img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン"></a>',
+                                    '<a href="my-profile-user.php?"><img src="img/',$row['user_icon'],'" class="img_icon" alt="アイコン"></a>',
                                     $row['user_name'],
                                     '</div>',
                                     '<div class="nes-balloon from-left is-dark">',
