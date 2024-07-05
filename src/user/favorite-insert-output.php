@@ -46,7 +46,9 @@
             echo '<br>';
             echo '<br>';
             echo ' <form action="my-profile.php" method="post">';
-            echo '<input type="submit" value="プロフィールへ戻る" class="profile">';
+            //echo '<input type="button" value="プロフィールへ戻る" class="profile">'; 初期状態
+            // echo '<a class="profile"  id="profile" href="my-profile.php">プロフィールへ戻る</a>';//変更後
+            echo '<input type="button" onclick="location.href=\'my-profile.php\'" value="プロフィールへ戻る" class="profile">';//最終変更後
             echo '</form>';
         }else{
             echo 'テーマが見つかりません。';
