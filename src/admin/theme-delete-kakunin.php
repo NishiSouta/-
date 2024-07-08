@@ -21,7 +21,7 @@
         }
         .container {
             text-align: center;
-            margin-top: 100px;
+            margin-top: 20px;
         }
         .theme-box {
             display: inline-block;
@@ -29,11 +29,13 @@
             padding: 20px;
             border-radius: 10px;
             width: 300px;
+            margin-bottom: 20px;
         }
         .theme-box img {
             width: 150px;
             height: 150px;
             margin-bottom: 10px;
+            border-radius: 50%; /* 画像を丸くする */
         }
         .button-box {
             margin-top: 20px;
@@ -41,9 +43,9 @@
             justify-content: center;
             gap: 10px;
         }
-        .button-box input {
+        .button-box button {
             margin: 0 10px;
-            width: 80px;
+            padding: 10px 20px;
         }
         .title {
             color: red;
@@ -59,38 +61,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="theme-box nes-container with-title">
-            <h3 class="title">こちらのテーマを削除してもよろしいですか?</h3>
+        <h3 class="title">選択されたテーマを削除してもよろしいですか?</h3>
+        <form action="theme-delete-kanryou.php" method="POST">
             <?php
-                $pdo = new PDO($connect, USER, PASS);
+            $pdo = new PDO($connect, USER, PASS);
 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['theme_id'])) {
-                    $theme_ids = $_POST['theme_id'];
-                    foreach ($theme_ids as $theme_id) {
-                        $sql = $pdo->prepare('SELECT * FROM Theme WHERE theme_id = ?');
-                        $sql->execute([$theme_id]);
-                        if ($row = $sql->fetch()) {
-                            echo '<img src="../img/'.$row['theme_jpg'].'.jpg" alt="テーマ画像"><br>';
-                            echo '<p class="theme-name">'.$row['theme_name'].'</p>';
-                            echo '<form action="theme-delete-kanryou.php" method="POST" style="display:inline;">';
-                            foreach ($theme_ids as $id) {
-                                echo '<input type="hidden" name="theme_id[]" value="'.$id.'">';
-                            }
-                            echo '<input type="submit" class="nes-btn is-primary" value="はい">';
-                            echo '</form>';
-                            echo '<form action="admin-top.php" method="POST" style="display:inline;">';
-                            echo '<input type="submit" class="nes-btn is-error" value="いいえ">';
-                            echo '</form>';
-                            break;
-                        } else {
-                            echo '<p>テーマが見つかりません。</p>';
-                        }
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['theme_id'])) {
+                $theme_ids = $_POST['theme_id'];
+                foreach ($theme_ids as $theme_id) {
+                    $sql = $pdo->prepare('SELECT * FROM Theme WHERE theme_id = ?');
+                    $sql->execute([$theme_id]);
+                    if ($row = $sql->fetch()) {
+                        echo '<div class="theme-box nes-container with-title">';
+                        echo '<img src="../img/'.$row['theme_jpg'].'.jpg" alt="テーマ画像"><br>';
+                        echo '<p class="theme-name">'.$row['theme_name'].'</p>';
+                        echo '<input type="hidden" name="theme_id[]" value="'.$row['theme_id'].'">';
+                        echo '</div>';
+                    } else {
+                        echo '<p>テーマが見つかりません。</p>';
                     }
-                } else {
-                    echo '<p>テーマが選択されていません。</p>';
                 }
+                echo '<div class="button-box">';
+                echo '<button type="submit" name="submit" class="nes-btn is-primary">はい</button>';
+                echo '<button type="button" class="nes-btn is-error" onclick="history.back();">いいえ</button>';
+                echo '</div>';
+            } else {
+                echo '<p>テーマが選択されていません。</p>';
+            }
             ?>
-        </div>
+        </form>
     </div>
 </body>
 </html>
