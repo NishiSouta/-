@@ -26,7 +26,7 @@ session_start();
             foreach ($sql as $row) {
                 echo '<div class="flex_item">';
                 echo '<a href="detail.php?theme_id=' . $row['theme_id'] . '"><span>';
-                echo '<label><img src="img/' . $row['theme_jpg'] . '.jpg" class="img_game" alt="写真">' . $row['theme_name'] . '</span>';
+                echo '<label><img src="../img/' . $row['theme_jpg'] . '.jpg" class="img_game" alt="写真">' . $row['theme_name'] . '</span>';
                 echo '</label></div></a>';
             }
             ?>
@@ -38,7 +38,7 @@ session_start();
             $sql = $pdo->query('SELECT * FROM Theme');
             foreach ($sql as $row) {
                 echo '<a href="detail.php?theme_id=' . $row['theme_id'] . '"><div class="flex_item">',
-                     '<img src="img/' . $row['theme_jpg'] . '.jpg" class="img_game" alt="写真">',
+                     '<img src="../img/' . $row['theme_jpg'] . '.jpg" class="img_game" alt="写真">',
                      '<div class="game_title">' . $row['theme_name'] . "</div>",
                      '</div></a>';
             }
