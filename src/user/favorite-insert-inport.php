@@ -67,7 +67,7 @@
        
         echo '<div class="flex_item">';
         echo '<div class="checkbox">';
-        echo '<label><img src="img/',$row['theme_jpg'],'".jpg" class="img_game" alt="写真">';
+        echo '<label><img src="../img/',$row['theme_jpg'],'".jpg" class="img_game" alt="写真">';
         echo '<input type="checkbox" name="theme_id[]" value="',$row['theme_id'],'"><span>',$row['theme_name'],'</span>';
         echo '</label></div></div>';
        
