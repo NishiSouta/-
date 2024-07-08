@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_FILES['user_icon']['name']) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["user_icon"]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $new_image_name = uniqid() . '.' . $imageFileType;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));//拡張子を保存
+        $new_image_name = uniqid() . '.' . $imageFileType;//拡張子と名前結合
         $target_path = $target_dir . $new_image_name;
 
         // アップロードされたファイルを指定のパスに移動する
@@ -35,14 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 名前とメールアドレスの更新処理
     $name = htmlspecialchars($_POST['name']);
     $mail = htmlspecialchars($_POST['mail']);
-
-    if (!empty($name) && !empty($mail)) {
+    $pw = htmlspecialchars($_POST['password']);
+    $hashed_password = password_hash($pw, PASSWORD_DEFAULT);
+    if (!empty($name) && !empty($mail) && !empty($pw)) {
         try {
             // データベースにユーザー情報を更新するクエリを実行する
-            $sql = 'UPDATE User SET user_name = :name, user_mail = :mail WHERE user_id = :user_id';
+            $sql = 'UPDATE User SET user_name = :name, user_mail = :mail, user_pw = :pw WHERE user_id = :user_id';
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':mail', $mail);
+            $stmt->bindParam(':pw', $hashed_password);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->execute();
 
@@ -58,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // 現在のユーザー情報を取得するクエリを実行する
 try {
-    $sql = 'SELECT user_name, user_mail, user_icon FROM User WHERE user_id = :user_id';
+    $sql = 'SELECT user_name, user_mail, user_icon, user_pw FROM User WHERE user_id = :user_id';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
@@ -107,13 +109,13 @@ try {
             </div>
             <div>
                 <label for="password"><h2>パスワード</h2></label>
-                <input type="password" id="password" name="password" value="<?= htmlspecialchars($user['user_mail']) ?>">
+                <input type="password" id="password" name="password">
             </div>
             <div id="left">
-                <button type="button" onclick="history.back()">戻る</button>
+                <button type="button" class="nes-btn"  onclick="history.back()">戻る</button>
             </div>
             <div id="right">
-                <button type="submit">更新</button>
+                <button type="submit" class="nes-btn">更新</button>
             </div>
         </form>
     </div>
