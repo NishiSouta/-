@@ -50,7 +50,7 @@
                     echo '<div class="flex_item">';
                     echo '<input type="radio" name="theme" id="theme' . $row['theme_id'] . '" value="' . $row['theme_id'] . '" required>';
                     echo '<label for="theme' . $row['theme_id'] . '">';
-                    echo '<img src="img/' . $row['theme_jpg'] . '" class="img_game">';
+                    echo '<img src="../img/' . $row['theme_jpg'] . '" class="img_game">';
                     echo '</label>';
                     echo '</div>';
                     $count++;
