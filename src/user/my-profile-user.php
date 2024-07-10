@@ -14,7 +14,7 @@
 <body>
     <main>
     <header>
-        <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
+        <a href="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="post" id="form" action="search.php">
             <div class="nes-field">
                 <label for="search_field"></label>
@@ -50,11 +50,7 @@
 
     ?>
     </div>
-    <form action="" method="POST">
-        <br>
-        <input type="submit" class="nes-btn"  id="insert" value="戻る">
-    </form>
-    
+    <button type="button" onclick="history.back()">戻る</button>
     </main>
 </body>
 </html>
