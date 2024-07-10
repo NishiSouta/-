@@ -27,6 +27,10 @@ try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
+        $sql = 'DELETE FROM Chat WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
 
         // ユーザーの削除
         $sql = 'DELETE FROM User WHERE user_id = :user_id';

@@ -14,7 +14,7 @@
 <body>
     <main>
     <header>
-        <a herf="top.php"><img src="img/AGB.png" class="logo"></a>
+        <a href="top.php"><img src="img/AGB.png" class="logo"></a>
         <form method="post" id="form" action="search.php">
             <div class="nes-field">
                 <label for="search_field"></label>
@@ -28,7 +28,7 @@
     <?php
         $pdo=new PDO($connect, USER, PASS);
             $sql=$pdo->prepare('select * from User where user_id = ? ');
-            $sql->execute([$_SESSION['user']['user_id']]);
+            $sql->execute([$_GET['user_id']]);
             foreach($sql as $row){
                 echo '<img alt="image" src="', $row['user_icon'],  '" class="img_game1">';
                 echo '<br><br><span class="name">',$row['user_name'],'</span>';
@@ -46,15 +46,11 @@
                             echo '<a href="detail.php?theme_id=' . $row2['theme_id'] . '"><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
                             echo '</div>';
                         }
+            echo '<a href="chat.php?board_id=',$_GET['board_id'],'"><button type="button">戻る</button></a>';
 
 
     ?>
     </div>
-    <form action="" method="POST">
-        <br>
-        <input type="submit" class="nes-btn"  id="insert" value="戻る">
-    </form>
-    
     </main>
 </body>
 </html>

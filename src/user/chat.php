@@ -36,7 +36,7 @@
                                 echo
                                     '<div class="chat_left">',
                                     '<div class="user_icon">',
-                                    '<a href="my-profile-user.php?"><img src="img/',$row['user_icon'],'" class="img_icon" alt="アイコン"></a>',
+                                    '<a href="my-profile-user.php?user_id=',$row['user_id'],'&board_id=',$_GET['board_id'],'"><img src="img/',$row['user_icon'],'" class="img_icon" alt="アイコン"></a>',
                                     $row['user_name'],
                                     '</div>',
                                     '<div class="nes-balloon from-left is-dark">',
