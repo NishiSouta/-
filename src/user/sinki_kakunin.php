@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ユーザープロフィール画像の処理
     $user_icon = $_FILES['user_icon']['name'];
     $user_icon_tmp = $_FILES['user_icon']['tmp_name'];
-    $upload_directory = "uploads/";
+    $upload_directory = "../img/";
 
     // ファイルを指定のディレクトリに移動する
     move_uploaded_file($user_icon_tmp, $upload_directory . $user_icon);
