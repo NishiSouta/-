@@ -9,7 +9,7 @@ $user_id = $_SESSION['user']['user_id']; // セッションからユーザーID�
 // ユーザーアイコンの更新処理
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_FILES['user_icon']['name']) {
-        $target_dir = "uploads/";
+        $target_dir = "../img/";
         $target_file = $target_dir . basename($_FILES["user_icon"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));//拡張子を保存
         $new_image_name = uniqid() . '.' . $imageFileType;//拡張子と名前結合
