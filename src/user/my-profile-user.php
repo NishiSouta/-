@@ -37,7 +37,7 @@
                 $pdo=new PDO($connect, USER, PASS);
                     $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
                                          LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-                    $sql2->execute(array($_GET['user_id']));
+                    $sql2->execute(array($_SESSION['user']['user_id']));
                             echo '<p class="p_mpu">お気に入り</p>';
                             echo '<div class="flex_box">';   
                         foreach($sql2 as $row2){
@@ -46,11 +46,11 @@
                             echo '<a href="detail.php?theme_id=' . $row2['theme_id'] . '"><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
                             echo '</div>';
                         }
+            echo '<a href="chat.php?board_id=',$_GET['board_id'],'"><button type="button">戻る</button></a>';
 
 
     ?>
-    <button type="button" onclick="history.back()">戻る</button>
     </div>
     </main>
 </body>
-</html> 
+</html>
