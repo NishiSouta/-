@@ -36,7 +36,11 @@
                                 echo
                                     '<div class="chat_left">',
                                     '<div class="user_icon">',
+<<<<<<< Updated upstream
                                     '<a href="my-profile-user.php?"><img src="img/',$row['user_icon'],'" class="img_icon" alt="アイコン"></a>',
+=======
+                                    '<a href="my-profile-user.php?user_id=',$row['user_id'],'"><img src="img/',$row['user_icon'],'.jpg" class="img_icon" alt="アイコン"></a>',
+>>>>>>> Stashed changes
                                     $row['user_name'],
                                     '</div>',
                                     '<div class="nes-balloon from-left is-dark">',
