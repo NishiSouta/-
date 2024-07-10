@@ -1,4 +1,11 @@
 /* ユーザーアイコン関連のスタイル */
+@font-face {
+    font-family:'misakigothic';
+    src: url('misaki_gothic.eot');
+    src: url('misaki_gothic.woff') format('woff'),
+    url('misaki_gothic.ttf') format('truetype');
+}
+
 body {
             margin: 0 auto;
             width: 100%;
