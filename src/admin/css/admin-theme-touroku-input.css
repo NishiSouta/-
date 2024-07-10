@@ -1,66 +1,35 @@
-body{
-    margin: 0 auto;
-    width: 100%;
-    min-height: 100vh;
-    /* 画像ファイルの指定 */
-        background-image: url('../img/gamen.png');
-    
-    /* 画像を常に天地左右の中央に配置 */
-    background-position: center center;
-              
-    /* 画像をタイル状に繰り返し表示しない */
-    background-repeat: no-repeat;
-              
-    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-    background-attachment: fixed;
-              
-    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-    background-size: cover;
-              
-    /* 背景画像が読み込まれる前に表示される背景のカラー */
-    background-color: #464646;
-}
-p {
-    text-align: center;
+/* ユーザーアイコン関連のスタイル */
+body {
+            margin: 0 auto;
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('../img/gamen.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: #464646;
+            font-family: 'Press Start 2P', cursive;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+#file-button {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#center {
-    text-align: center;
-}
-#left{
-    position: absolute;
-    top: 630px;
-    left: 530px;
-}
-#right{
-    position: absolute;
-    top: 630px;
-    right: 530px;
-}
-.flex_box {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 10px;
-    justify-content: center;
-    gap: 10px;
-}
-
-.flex_item {
+.user-icon {
     position: relative;
     width: 150px;
-    text-align: center;
-}
-
-.img_game {
-    width: 150px;
     height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.3s;
 }
 
-/* 丸い画像 */
 .rounded-icon {
     border-radius: 50%;
     width: 150px;
@@ -70,103 +39,61 @@ p {
     background-color: white;
 }
 
-/* ラジオボタンの非表示 */
-input[type="radio"] {
+input[type="file"] {
     display: none;
 }
 
-/* 選択された画像のふちを赤く */
-input[type="radio"]:checked + label img {
-    border: 3px solid red;
-    box-sizing: border-box;
-}
-.rogu{
-    content:"";
-    width:150px;
-    height:20px;
-}
-.button{
-    display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-  #file-button {
-    position: absolute;
-    top: 320px;
-    left: 750px;
-}
-
+/* テーマ名関連のスタイル */
 #theme-button {
     position: absolute;
-    top: 320px;
-    left: 1050px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+#theme-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ラベルとテキストボックスの間の隙間 */
+}
+
+label {
+    font-size: 16px; /* ラベルのフォントサイズ */
+    color: #fff; /* ラベルのテキストカラー */
+}
+
+input[type="text"] {
+    width: 300px; /* テキストボックスの幅 */
+    height: 30px; /* テキストボックスの高さ */
+    padding: 8px; /* テキストボックスの内側の余白 */
+    border: 1px solid #ccc; /* テキストボックスの枠線 */
+    border-radius: 4px; /* テキストボックスの角丸 */
+    font-size: 14px; /* テキストボックスのフォントサイズ */
+    line-height: 1.5; /* テキストボックスの行の高さ */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* ホバーやフォーカス時のアニメーション */
+}
+
+input[type="text"]:focus {
+    outline: none; /* フォーカス時のアウトラインを非表示 */
+    border-color: #80bdff; /* フォーカス時の枠線の色 */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* フォーカス時の影 */
+}
+
+/* ボタン関連のスタイル */
 #touroku-button {
     position: absolute;
-    top: 320px;
-    left: 1550px;
+    top: 60%;
+    left: 55%;
 }
-#modoru-button{
+
+#modoru-button {
     position: absolute;
-    top: 220px;
-    left: 1550px;   
-}@font-face {
-    font-family:'misakigothic';
-    src: url('misaki_gothic.eot');
-    src: url('misaki_gothic.woff') format('woff'),
-    url('misaki_gothic.ttf') format('truetype');
+    top: 60%;
+    right: 55%;
 }
 
-
-.td{
-    background-color: #D9D9D9;
-    width: 300px; 
-}
-
-.td_name{
-    background-color: #D9D9D9;
-    width: 60px;
-    
-}
-
-.delete{
-   
-    background-color: white;
-    width: 750px;
-    height: 100px;
-}
-.h1{
-    color: white;
-}
-
-
-.flex_item{
-    display: flex;	
-    margin-right: 30px;
-    width: 170px;
-    flex-flow: colunm;
-    flex-wrap: wrap;
-    text-align: center;
-    display:inline-block
-    
-
-}
-
-.flex_box{
-    display: flex;
-    padding-top: 10px;
-    padding-left: 100px;
-    text-align: center;
-    flex-wrap: wrap;
-    width: 1200px;
-     margin:  auto;
-}
-
-.img_game{
-    background-position: center;
-    width: 150px;
-    height:150px;
-    border-radius:50%;
-    background-image: url("./img/white.png");
+button {
+    width: 100px; /* ボタンの幅 */
+    height: 50px; /* ボタンの高さ */
+    font-size: 20px; /* ボタンのテキストサイズ */
 }
