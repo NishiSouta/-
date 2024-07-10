@@ -37,7 +37,7 @@
                 $pdo=new PDO($connect, USER, PASS);
                     $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
                                          LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-                    $sql2->execute(array($_SESSION['user']['user_id']));
+                    $sql2->execute(array($_GET['user_id']));
                             echo '<p class="p_mpu">お気に入り</p>';
                             echo '<div class="flex_box">';   
                         foreach($sql2 as $row2){
@@ -53,4 +53,4 @@
     <button type="button" onclick="history.back()">戻る</button>
     </main>
 </body>
-</html>
+</html> 
