@@ -28,7 +28,7 @@
     <?php
         $pdo=new PDO($connect, USER, PASS);
             $sql=$pdo->prepare('select * from User where user_id = ? ');
-            $sql->execute([$_SESSION['user']['user_id']]);
+            $sql->execute([$_GET['user_id']]);
             foreach($sql as $row){
                 echo '<img alt="image" src="', $row['user_icon'],  '" class="img_game1">';
                 echo '<br><br><span class="name">',$row['user_name'],'</span>';
