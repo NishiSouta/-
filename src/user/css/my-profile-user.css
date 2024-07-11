@@ -141,3 +141,10 @@ main h3{
 .name{
     font-size: 30px;
 }
+
+.nes-btn2{
+    height: 65px;
+    width: 90px;
+    margin-left: 810px;
+    margin-bottom: 20px;
+}
