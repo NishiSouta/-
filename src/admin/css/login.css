@@ -1,63 +1,42 @@
-body{
+/* Existing CSS */
+
+body {
     background-image: url('../img/gamen.png');
-    background-size: 100% 450%;
+    background-size: 100% 240%;
     background-repeat: no-repeat;
 }
-p{
+
+p {
     text-align: center;
 }
-#center{
+
+#center {
     text-align: center;
 }
-#ac-button{
+
+h2 {
+    font-size: 2em; /* 見出しの文字サイズを大きくする */
+}
+
+input[type="text"], input[type="password"] {
+    font-size: 0.7em; /* テキストボックスの文字サイズを大きくする */
+    padding: 6px; /* テキストボックスの内側の余白を増やす */
+    width: 27%; /* テキストボックスの幅を大きくする */
+}
+
+button.rogu {
+    font-size: 1.3em; /* ボタンの文字サイズを大きくする */
+    padding: 10px 20px; /* ボタンの内側の余白を増やす */
+    margin-top: 20px; /* ログインボタンの上に余白を追加 */
+}
+
+#ac-button, #cm-button, #teto-button, #tede-button, #file-button, #theme-button, #touroku-button, #modoru-button {
     position: absolute;
-    top: 220px;
-    left: 750px;
+    /* The specific positions for these buttons are already defined */
 }
-#cm-button{
-    position: absolute;
-    top: 220px;
-    left: 1050px;
-}
-#teto-button{
-    position: absolute;
-    top: 320px;
-    left: 750px;
-}
-#tede-button{
-    position: absolute;
-    top: 320px;
-    left: 1050px;
-}
-.rogu{
-    content:"";
-    width:150px;
-    height:20px;
-}
-.button{
+
+.button {
     display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-  #file-button {
-    position: absolute;
-    top: 320px;
-    left: 750px;
-}
-
-#theme-button {
-    position: absolute;
-    top: 320px;
-    left: 1050px;
-}
-
-#touroku-button {
-    position: absolute;
-    top: 320px;
-    left: 1550px;
-}
-#modoru-button{
-    position: absolute;
-    top: 220px;
-    left: 1550px;   
+    flex-direction: column;
+    gap: 1em;
 }
