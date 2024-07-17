@@ -28,7 +28,7 @@
     <?php
         $pdo=new PDO($connect, USER, PASS);
             $sql=$pdo->prepare('select * from User where user_id = ? ');
-            $sql->execute([$_GET['user_id']]);
+            $sql->execute(array($_GET['user_id']));
             foreach($sql as $row){
                 echo '<img alt="image" src="', $row['user_icon'],  '" class="img_game1">';
                 echo '<br><br><span class="name">',$row['user_name'],'</span>';
@@ -37,7 +37,7 @@
                 $pdo=new PDO($connect, USER, PASS);
                     $sql2=$pdo->prepare('select distinct theme_jpg,  theme_name, Theme.theme_id from Favorite 
                                          LEFT JOIN  Theme ON Favorite.theme_id = Theme.theme_id where user_id=? ');
-                    $sql2->execute(array($_SESSION['user']['user_id']));
+                    $sql2->execute(array($_GET['user_id']));
                             echo '<p class="p_mpu">お気に入り</p>';
                             echo '<div class="flex_box">';   
                         foreach($sql2 as $row2){
@@ -46,11 +46,15 @@
                             echo '<a href="detail.php?theme_id=' . $row2['theme_id'] . '"><img src="img/',$row2['theme_jpg'],'".jpg" class="img_game" alt="写真">';
                             echo '</div>';
                         }
-            echo '<a href="chat.php?board_id=',$_GET['board_id'],'"><button type="button">戻る</button></a>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
 
+            echo '<a href="chat.php?board_id=',$_GET['board_id'],'"><button type="button" class="nes-btn2">戻る</button></a>';
+            
 
     ?>
-    </div>
+    
     </main>
 </body>
 </html>
