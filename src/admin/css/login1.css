@@ -1,0 +1,42 @@
+/* Existing CSS */
+
+body {
+    background-image: url('../img/gamen.png');
+    background-size: 100% 400%;
+    background-repeat: no-repeat;
+}
+
+p {
+    text-align: center;
+}
+
+#center {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em; /* 見出しの文字サイズを大きくする */
+}
+
+input[type="text"], input[type="password"] {
+    font-size: 0.7em; /* テキストボックスの文字サイズを大きくする */
+    padding: 6px; /* テキストボックスの内側の余白を増やす */
+    width: 27%; /* テキストボックスの幅を大きくする */
+}
+
+button.rogu {
+    font-size: 1.3em; /* ボタンの文字サイズを大きくする */
+    padding: 10px 20px; /* ボタンの内側の余白を増やす */
+    margin-top: 20px; /* ログインボタンの上に余白を追加 */
+}
+
+#ac-button, #cm-button, #teto-button, #tede-button, #file-button, #theme-button, #touroku-button, #modoru-button {
+    position: absolute;
+    /* The specific positions for these buttons are already defined */
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
