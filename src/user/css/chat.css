@@ -135,7 +135,7 @@ main h3{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    width: 100px;
+    width: 90px;
 }
 
 .chat_right{
