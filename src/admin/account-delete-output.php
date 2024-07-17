@@ -13,9 +13,24 @@
     <?php
 
     if (isset($_POST['user_id']) ) {
+        $user_id = $_POST['user_id'];
         $pdo=new PDO($connect, USER, PASS);
-        $sql=$pdo->prepare('delete from User where user_id=?');
-            $sql->execute([(int)$_POST['user_id']]);
+        $sql = 'DELETE FROM Favorite WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $sql = 'DELETE FROM Chat WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // ユーザーの削除
+        $sql = 'DELETE FROM User WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+            // $sql->execute([(int)$_POST['user_id']]);
 
             echo '削除完了しました。';
             echo '<br>';
