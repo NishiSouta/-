@@ -9,10 +9,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_icon_tmp = $_FILES['user_icon']['tmp_name'];
     $upload_directory = "../img/";
 
+
+
     // ファイルを指定のディレクトリに移動する
     move_uploaded_file($user_icon_tmp, $upload_directory . $user_icon);
 
     $user_icon_path = $upload_directory . $user_icon;
+
+
 
     $name = htmlspecialchars($_POST['name']);
     $mail = htmlspecialchars($_POST['mail']);
