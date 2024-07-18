@@ -29,8 +29,8 @@
                         $sql=$pdo->prepare('select * from Theme where theme_name like ?');
                         $sql->execute(['%'.$_POST['keyword'].'%']);
                         foreach ($sql as $row){
-                            echo '<a href="detail.php?id=',$row['theme_id'],'"><div class="flex_item">',
-                                    '<img src="img/',$row['theme_jpg'],'.jpg" class="img_game" alt="写真">',
+                            echo '<a href="detail.php?theme_id=',$row['theme_id'],'"><div class="flex_item">',
+                                    '<img src="../img/',$row['theme_jpg'],'.jpg" class="img_game" alt="写真">',
                                     '<div class="game_title">',$row['theme_name'],"</div>",
                                 '</div></a>';
                         }
