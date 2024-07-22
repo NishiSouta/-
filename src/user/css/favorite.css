@@ -173,3 +173,10 @@ input[type="checkbox"]#theme_checkbox:checked + label{
     margin-bottom: 20px;
      font-size:  32px;
 }
+.nes-btn1{
+    height: 65px;
+    width: 90px;;
+    margin-left: 50px;
+    margin-bottom: 20px;
+     font-size:  40px;
+}
