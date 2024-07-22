@@ -86,7 +86,7 @@
 </div>
 <br>
 <br>
-<input type="submit" class="nes-btn"  id="insert" value="削除">
+<input type="submit" class="nes-btn1"  id="insert" value="削除">
 </div>
 </form>
 </main>
